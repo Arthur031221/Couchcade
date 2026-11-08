@@ -1,0 +1,486 @@
+{
+ "id": "core-de",
+ "lang": "de",
+ "name": "Core prompts",
+ "author": "Couchcade",
+ "items": {
+  "squiggle": [
+   {
+    "text": "ein schläfriger Drache"
+   },
+   {
+    "text": "eine Pizza auf einem Skateboard"
+   },
+   {
+    "text": "eine Astronauten-Katze"
+   },
+   {
+    "text": "ein verhexter Toaster"
+   },
+   {
+    "text": "ein Pinguin am Strand"
+   },
+   {
+    "text": "ein Roboter beim Spaghetti-Essen"
+   },
+   {
+    "text": "eine riesige Schnecke"
+   },
+   {
+    "text": "eine extrem hohe Giraffe"
+   },
+   {
+    "text": "ein Dinosaurier mit Regenschirm"
+   },
+   {
+    "text": "eine Qualle in der Badewanne"
+   },
+   {
+    "text": "ein Zauberer auf dem Fahrrad"
+   },
+   {
+    "text": "ein schleichender Ninja"
+   },
+   {
+    "text": "ein Fisch auf einem Fahrrad"
+   },
+   {
+    "text": "eine brennende Geburtstagstorte"
+   },
+   {
+    "text": "eine mürrische Wolke"
+   },
+   {
+    "text": "ein Monster unter dem Bett"
+   },
+   {
+    "text": "ein Schneemann im Sommer"
+   },
+   {
+    "text": "ein Piratenschiff im Gartenteich"
+   },
+   {
+    "text": "ein winziger Elefant"
+   },
+   {
+    "text": "eine tanzende Banane"
+   },
+   {
+    "text": "ein Geist beim Wäschewaschen"
+   },
+   {
+    "text": "ein fauler Oktopus"
+   },
+   {
+    "text": "ein König auf dem Klo-Thron"
+   },
+   {
+    "text": "eine Rakete aus Käse"
+   }
+  ],
+  "fibber": [
+   {
+    "q": "In Gräbern des alten Ägypten fand man noch essbaren ___.",
+    "a": "Honig"
+   },
+   {
+    "q": "Der kürzeste Krieg der Geschichte, 1896, fand zwischen Großbritannien und ___ statt.",
+    "a": "Sansibar"
+   },
+   {
+    "q": "Wombat-Kot hat die Form von ___.",
+    "a": "Würfeln"
+   },
+   {
+    "q": "Ernő Rubik, der Erfinder des Zauberwürfels, stammt aus ___.",
+    "a": "Ungarn"
+   },
+   {
+    "q": "Die Haut eines Eisbären ist ___.",
+    "a": "schwarz"
+   },
+   {
+    "q": "Botanisch gesehen ist die Banane eine ___.",
+    "a": "Beere"
+   },
+   {
+    "q": "Die Einheit Dezibel ist nach Alexander Graham ___ benannt.",
+    "a": "Bell"
+   },
+   {
+    "q": "Das Nationaltier Schottlands ist das ___.",
+    "a": "Einhorn"
+   },
+   {
+    "q": "Ein Oktopus hat ___ Herzen.",
+    "a": "drei"
+   },
+   {
+    "q": "Der Eiffelturm wird im Sommer wegen der ___ höher.",
+    "a": "Hitze"
+   },
+   {
+    "q": "Auf der Venus dauert ein Tag länger als ein ___.",
+    "a": "Jahr"
+   }
+  ],
+  "trivia": [
+   {
+    "q": "Was ist die Hauptstadt von Australien?",
+    "options": [
+     "Sydney",
+     "Melbourne",
+     "Perth",
+     "Canberra"
+    ],
+    "answer": 3
+   },
+   {
+    "q": "Welcher Planet ist der Sonne am nächsten?",
+    "options": [
+     "Venus",
+     "Mars",
+     "Merkur",
+     "Jupiter"
+    ],
+    "answer": 2
+   },
+   {
+    "q": "Wie viele Knochen hat ein Erwachsener?",
+    "options": [
+     "206",
+     "212",
+     "226",
+     "196"
+    ],
+    "answer": 0
+   },
+   {
+    "q": "Wie lautet das chemische Symbol für Gold?",
+    "options": [
+     "Au",
+     "Ag",
+     "Gd",
+     "Go"
+    ],
+    "answer": 0
+   },
+   {
+    "q": "Welcher ist der größte Ozean?",
+    "options": [
+     "Pazifik",
+     "Atlantik",
+     "Indischer Ozean",
+     "Arktischer Ozean"
+    ],
+    "answer": 0
+   },
+   {
+    "q": "Wer malte die Mona Lisa?",
+    "options": [
+     "Michelangelo",
+     "Leonardo da Vinci",
+     "Raffael",
+     "Van Gogh"
+    ],
+    "answer": 1
+   },
+   {
+    "q": "Wie viele Saiten hat eine normale Gitarre?",
+    "options": [
+     "6",
+     "4",
+     "5",
+     "8"
+    ],
+    "answer": 0
+   },
+   {
+    "q": "Welches Gas nehmen Pflanzen aus der Luft auf?",
+    "options": [
+     "Sauerstoff",
+     "Stickstoff",
+     "Kohlendioxid",
+     "Helium"
+    ],
+    "answer": 2
+   },
+   {
+    "q": "Was ist die kleinste Primzahl?",
+    "options": [
+     "2",
+     "1",
+     "3",
+     "0"
+    ],
+    "answer": 0
+   },
+   {
+    "q": "Welches ist die größte heiße Wüste?",
+    "options": [
+     "Gobi",
+     "Kalahari",
+     "Sahara",
+     "Arabische Wüste"
+    ],
+    "answer": 2
+   },
+   {
+    "q": "Wie viele Kontinente gibt es?",
+    "options": [
+     "7",
+     "5",
+     "6",
+     "8"
+    ],
+    "answer": 0
+   },
+   {
+    "q": "Welches ist das schnellste Landtier?",
+    "options": [
+     "Gepard",
+     "Löwe",
+     "Pferd",
+     "Windhund"
+    ],
+    "answer": 0
+   },
+   {
+    "q": "Wie heißt die Währung Japans?",
+    "options": [
+     "Yen",
+     "Won",
+     "Yuan",
+     "Baht"
+    ],
+    "answer": 0
+   },
+   {
+    "q": "Was ist der härteste natürliche Stoff?",
+    "options": [
+     "Diamant",
+     "Quarz",
+     "Stahl",
+     "Granit"
+    ],
+    "answer": 0
+   },
+   {
+    "q": "In welchem Jahr endete der Zweite Weltkrieg?",
+    "options": [
+     "1939",
+     "1945",
+     "1950",
+     "1918"
+    ],
+    "answer": 1
+   },
+   {
+    "q": "Welches Instrument hat 88 Tasten?",
+    "options": [
+     "Orgel",
+     "Akkordeon",
+     "Klavier",
+     "Harfe"
+    ],
+    "answer": 2
+   }
+  ],
+  "echo": [
+   {
+    "text": "Nenne ein Obst",
+    "hints": [
+     "Apfel",
+     "Banane",
+     "Orange"
+    ]
+   },
+   {
+    "text": "Nenne eine Farbe",
+    "hints": [
+     "blau",
+     "rot",
+     "grün"
+    ]
+   },
+   {
+    "text": "Nenne ein Haustier",
+    "hints": [
+     "Hund",
+     "Katze",
+     "Fisch"
+    ]
+   },
+   {
+    "text": "Nenne ein Land",
+    "hints": [
+     "Deutschland",
+     "Italien",
+     "Frankreich"
+    ]
+   },
+   {
+    "text": "Nenne etwas zum Frühstück",
+    "hints": [
+     "Brötchen",
+     "Müsli",
+     "Kaffee"
+    ]
+   },
+   {
+    "text": "Nenne einen Superhelden",
+    "hints": [
+     "Batman",
+     "Spider-Man",
+     "Superman"
+    ]
+   },
+   {
+    "text": "Nenne einen Wochentag",
+    "hints": [
+     "Freitag",
+     "Montag",
+     "Samstag"
+    ]
+   },
+   {
+    "text": "Nenne eine Stadt",
+    "hints": [
+     "Berlin",
+     "Hamburg",
+     "München"
+    ]
+   },
+   {
+    "text": "Nenne ein Tier vom Bauernhof",
+    "hints": [
+     "Kuh",
+     "Schwein",
+     "Huhn"
+    ]
+   },
+   {
+    "text": "Nenne etwas aus der Küche",
+    "hints": [
+     "Kühlschrank",
+     "Messer",
+     "Herd"
+    ]
+   },
+   {
+    "text": "Nenne eine Jahreszeit",
+    "hints": [
+     "Sommer",
+     "Winter",
+     "Frühling"
+    ]
+   },
+   {
+    "text": "Nenne eine Sportart",
+    "hints": [
+     "Fußball",
+     "Tennis",
+     "Handball"
+    ]
+   },
+   {
+    "text": "Nenne einen Pizzabelag",
+    "hints": [
+     "Käse",
+     "Salami",
+     "Pilze"
+    ]
+   },
+   {
+    "text": "Nenne ein Musikinstrument",
+    "hints": [
+     "Gitarre",
+     "Klavier",
+     "Schlagzeug"
+    ]
+   },
+   {
+    "text": "Nenne ein Gemüse",
+    "hints": [
+     "Karotte",
+     "Kartoffel",
+     "Gurke"
+    ]
+   },
+   {
+    "text": "Nenne etwas aus deiner Tasche",
+    "hints": [
+     "Handy",
+     "Geldbeutel",
+     "Schlüssel"
+    ]
+   }
+  ],
+  "mole": [
+   {
+    "category": "Obst",
+    "word": "Banane"
+   },
+   {
+    "category": "Obst",
+    "word": "Apfel"
+   },
+   {
+    "category": "Tier",
+    "word": "Pinguin"
+   },
+   {
+    "category": "Tier",
+    "word": "Giraffe"
+   },
+   {
+    "category": "Sport",
+    "word": "Tennis"
+   },
+   {
+    "category": "Sport",
+    "word": "Fußball"
+   },
+   {
+    "category": "Ort",
+    "word": "Strand"
+   },
+   {
+    "category": "Ort",
+    "word": "Bibliothek"
+   },
+   {
+    "category": "Essen",
+    "word": "Pizza"
+   },
+   {
+    "category": "Essen",
+    "word": "Currywurst"
+   },
+   {
+    "category": "Beruf",
+    "word": "Arzt"
+   },
+   {
+    "category": "Beruf",
+    "word": "Pilot"
+   },
+   {
+    "category": "Instrument",
+    "word": "Geige"
+   },
+   {
+    "category": "Instrument",
+    "word": "Schlagzeug"
+   },
+   {
+    "category": "Fahrzeug",
+    "word": "Fahrrad"
+   },
+   {
+    "category": "Fahrzeug",
+    "word": "U-Boot"
+   }
+  ]
+ }
+}

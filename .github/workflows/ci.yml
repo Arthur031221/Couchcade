@@ -1,0 +1,43 @@
+name: ci
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  go:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+      - run: test -z "$(gofmt -l .)"
+      - run: go vet ./...
+      - run: go test -race ./...
+      - run: go build -o couchcade ./cmd/couchcade
+      - run: GOOS=js GOARCH=wasm go build -o /tmp/couchcade.wasm ./cmd/couchcade-wasm
+      - run: ./couchcade loadtest -phones 100
+      - uses: actions/upload-artifact@v4
+        with:
+          name: couchcade-linux
+          path: couchcade
+
+  e2e:
+    runs-on: ubuntu-latest
+    needs: go
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: go build -o couchcade ./cmd/couchcade
+      - run: npm install --no-audit --no-fund
+        working-directory: e2e
+      - run: node run.mjs ../couchcade
+        working-directory: e2e
+        env:
+          CHROME: /usr/bin/google-chrome

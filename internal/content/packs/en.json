@@ -1,0 +1,490 @@
+{
+ "id": "core-en",
+ "lang": "en",
+ "name": "Core prompts",
+ "author": "Couchcade",
+ "items": {
+  "squiggle": [
+   {
+    "text": "a sleepy dragon"
+   },
+   {
+    "text": "a pizza on a skateboard"
+   },
+   {
+    "text": "a cat astronaut"
+   },
+   {
+    "text": "a haunted toaster"
+   },
+   {
+    "text": "a penguin at the beach"
+   },
+   {
+    "text": "a robot eating spaghetti"
+   },
+   {
+    "text": "a giant snail"
+   },
+   {
+    "text": "a very tall giraffe"
+   },
+   {
+    "text": "a dinosaur with an umbrella"
+   },
+   {
+    "text": "a jellyfish in a bathtub"
+   },
+   {
+    "text": "a wizard on a bicycle"
+   },
+   {
+    "text": "a sneaky ninja"
+   },
+   {
+    "text": "a fish riding a bicycle"
+   },
+   {
+    "text": "a birthday cake on fire"
+   },
+   {
+    "text": "a grumpy cloud"
+   },
+   {
+    "text": "a monster under the bed"
+   },
+   {
+    "text": "a snowman in summer"
+   },
+   {
+    "text": "a pirate ship in a pond"
+   },
+   {
+    "text": "a tiny elephant"
+   },
+   {
+    "text": "a dancing banana"
+   },
+   {
+    "text": "a ghost doing laundry"
+   },
+   {
+    "text": "a lazy octopus"
+   },
+   {
+    "text": "a king on a toilet throne"
+   },
+   {
+    "text": "a rocket made of cheese"
+   }
+  ],
+  "fibber": [
+   {
+    "q": "A group of flamingos is called a ___.",
+    "a": "flamboyance"
+   },
+   {
+    "q": "Archaeologists found edible honey in the tombs of ancient ___.",
+    "a": "Egypt"
+   },
+   {
+    "q": "The shortest war in history, in 1896, was fought between Britain and ___.",
+    "a": "Zanzibar"
+   },
+   {
+    "q": "Wombat droppings are shaped like ___.",
+    "a": "cubes"
+   },
+   {
+    "q": "Rubik's Cube inventor Ernő Rubik comes from ___.",
+    "a": "Hungary"
+   },
+   {
+    "q": "The skin of a polar bear is ___.",
+    "a": "black"
+   },
+   {
+    "q": "Botanically, a banana is a ___.",
+    "a": "berry"
+   },
+   {
+    "q": "The unit decibel is named after Alexander Graham ___.",
+    "a": "Bell"
+   },
+   {
+    "q": "The national animal of Scotland is the ___.",
+    "a": "unicorn"
+   },
+   {
+    "q": "An octopus has ___ hearts.",
+    "a": "three"
+   },
+   {
+    "q": "The Eiffel Tower grows taller in summer because of ___.",
+    "a": "heat"
+   },
+   {
+    "q": "The dot over a lowercase letter i is called a ___.",
+    "a": "tittle"
+   }
+  ],
+  "trivia": [
+   {
+    "q": "What is the capital of Australia?",
+    "options": [
+     "Sydney",
+     "Melbourne",
+     "Perth",
+     "Canberra"
+    ],
+    "answer": 3
+   },
+   {
+    "q": "Which planet is closest to the Sun?",
+    "options": [
+     "Venus",
+     "Mars",
+     "Mercury",
+     "Jupiter"
+    ],
+    "answer": 2
+   },
+   {
+    "q": "How many bones does an adult human have?",
+    "options": [
+     "206",
+     "212",
+     "226",
+     "196"
+    ],
+    "answer": 0
+   },
+   {
+    "q": "What is the chemical symbol for gold?",
+    "options": [
+     "Au",
+     "Ag",
+     "Gd",
+     "Go"
+    ],
+    "answer": 0
+   },
+   {
+    "q": "Which is the largest ocean?",
+    "options": [
+     "Pacific",
+     "Atlantic",
+     "Indian",
+     "Arctic"
+    ],
+    "answer": 0
+   },
+   {
+    "q": "Who painted the Mona Lisa?",
+    "options": [
+     "Michelangelo",
+     "Leonardo da Vinci",
+     "Raphael",
+     "Van Gogh"
+    ],
+    "answer": 1
+   },
+   {
+    "q": "How many strings does a standard guitar have?",
+    "options": [
+     "6",
+     "4",
+     "5",
+     "8"
+    ],
+    "answer": 0
+   },
+   {
+    "q": "Which gas do plants absorb from the air?",
+    "options": [
+     "Oxygen",
+     "Nitrogen",
+     "Carbon dioxide",
+     "Helium"
+    ],
+    "answer": 2
+   },
+   {
+    "q": "What is the smallest prime number?",
+    "options": [
+     "2",
+     "1",
+     "3",
+     "0"
+    ],
+    "answer": 0
+   },
+   {
+    "q": "Which is the largest hot desert?",
+    "options": [
+     "Gobi",
+     "Kalahari",
+     "Sahara",
+     "Arabian"
+    ],
+    "answer": 2
+   },
+   {
+    "q": "How many continents are there?",
+    "options": [
+     "7",
+     "5",
+     "6",
+     "8"
+    ],
+    "answer": 0
+   },
+   {
+    "q": "Which is the fastest land animal?",
+    "options": [
+     "Cheetah",
+     "Lion",
+     "Horse",
+     "Greyhound"
+    ],
+    "answer": 0
+   },
+   {
+    "q": "What is the currency of Japan?",
+    "options": [
+     "Yen",
+     "Won",
+     "Yuan",
+     "Baht"
+    ],
+    "answer": 0
+   },
+   {
+    "q": "What is the hardest natural substance?",
+    "options": [
+     "Diamond",
+     "Quartz",
+     "Steel",
+     "Granite"
+    ],
+    "answer": 0
+   },
+   {
+    "q": "In which year did World War II end?",
+    "options": [
+     "1939",
+     "1945",
+     "1950",
+     "1918"
+    ],
+    "answer": 1
+   },
+   {
+    "q": "Which instrument has 88 keys?",
+    "options": [
+     "Organ",
+     "Accordion",
+     "Piano",
+     "Harp"
+    ],
+    "answer": 2
+   }
+  ],
+  "echo": [
+   {
+    "text": "Name a fruit",
+    "hints": [
+     "apple",
+     "banana",
+     "orange"
+    ]
+   },
+   {
+    "text": "Name a color",
+    "hints": [
+     "blue",
+     "red",
+     "green"
+    ]
+   },
+   {
+    "text": "Name a pet",
+    "hints": [
+     "dog",
+     "cat",
+     "fish"
+    ]
+   },
+   {
+    "text": "Name a country",
+    "hints": [
+     "France",
+     "Japan",
+     "Canada"
+    ]
+   },
+   {
+    "text": "Name a breakfast food",
+    "hints": [
+     "eggs",
+     "cereal",
+     "pancakes"
+    ]
+   },
+   {
+    "text": "Name a superhero",
+    "hints": [
+     "Batman",
+     "Spider-Man",
+     "Superman"
+    ]
+   },
+   {
+    "text": "Name a day of the week",
+    "hints": [
+     "Friday",
+     "Monday",
+     "Saturday"
+    ]
+   },
+   {
+    "text": "Name a city",
+    "hints": [
+     "Paris",
+     "London",
+     "Tokyo"
+    ]
+   },
+   {
+    "text": "Name a farm animal",
+    "hints": [
+     "cow",
+     "pig",
+     "chicken"
+    ]
+   },
+   {
+    "text": "Name something in a kitchen",
+    "hints": [
+     "fridge",
+     "knife",
+     "stove"
+    ]
+   },
+   {
+    "text": "Name a season",
+    "hints": [
+     "summer",
+     "winter",
+     "spring"
+    ]
+   },
+   {
+    "text": "Name a sport",
+    "hints": [
+     "soccer",
+     "basketball",
+     "tennis"
+    ]
+   },
+   {
+    "text": "Name a pizza topping",
+    "hints": [
+     "pepperoni",
+     "cheese",
+     "mushrooms"
+    ]
+   },
+   {
+    "text": "Name a musical instrument",
+    "hints": [
+     "guitar",
+     "piano",
+     "drums"
+    ]
+   },
+   {
+    "text": "Name a vegetable",
+    "hints": [
+     "carrot",
+     "potato",
+     "broccoli"
+    ]
+   },
+   {
+    "text": "Name a thing you carry in a bag",
+    "hints": [
+     "phone",
+     "wallet",
+     "keys"
+    ]
+   }
+  ],
+  "mole": [
+   {
+    "category": "Fruit",
+    "word": "banana"
+   },
+   {
+    "category": "Fruit",
+    "word": "apple"
+   },
+   {
+    "category": "Animal",
+    "word": "penguin"
+   },
+   {
+    "category": "Animal",
+    "word": "giraffe"
+   },
+   {
+    "category": "Sport",
+    "word": "tennis"
+   },
+   {
+    "category": "Sport",
+    "word": "soccer"
+   },
+   {
+    "category": "Place",
+    "word": "beach"
+   },
+   {
+    "category": "Place",
+    "word": "library"
+   },
+   {
+    "category": "Food",
+    "word": "pizza"
+   },
+   {
+    "category": "Food",
+    "word": "sushi"
+   },
+   {
+    "category": "Job",
+    "word": "doctor"
+   },
+   {
+    "category": "Job",
+    "word": "pilot"
+   },
+   {
+    "category": "Instrument",
+    "word": "violin"
+   },
+   {
+    "category": "Instrument",
+    "word": "drums"
+   },
+   {
+    "category": "Vehicle",
+    "word": "bicycle"
+   },
+   {
+    "category": "Vehicle",
+    "word": "submarine"
+   }
+  ]
+ }
+}

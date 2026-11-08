@@ -1,0 +1,4 @@
+FROM scratch
+COPY couchcade /couchcade
+EXPOSE 8080
+ENTRYPOINT ["/couchcade", "serve", "-addr", ":8080"]

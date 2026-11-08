@@ -1,0 +1,486 @@
+{
+ "id": "core-fr",
+ "lang": "fr",
+ "name": "Core prompts",
+ "author": "Couchcade",
+ "items": {
+  "squiggle": [
+   {
+    "text": "un dragon endormi"
+   },
+   {
+    "text": "une pizza sur un skateboard"
+   },
+   {
+    "text": "un chat astronaute"
+   },
+   {
+    "text": "un grille-pain hanté"
+   },
+   {
+    "text": "un pingouin à la plage"
+   },
+   {
+    "text": "un robot qui mange des spaghettis"
+   },
+   {
+    "text": "un escargot géant"
+   },
+   {
+    "text": "une girafe très grande"
+   },
+   {
+    "text": "un dinosaure avec un parapluie"
+   },
+   {
+    "text": "une méduse dans une baignoire"
+   },
+   {
+    "text": "un sorcier à vélo"
+   },
+   {
+    "text": "un ninja discret"
+   },
+   {
+    "text": "un poisson à vélo"
+   },
+   {
+    "text": "un gâteau d'anniversaire en feu"
+   },
+   {
+    "text": "un nuage grincheux"
+   },
+   {
+    "text": "un monstre sous le lit"
+   },
+   {
+    "text": "un bonhomme de neige en été"
+   },
+   {
+    "text": "un bateau de pirates dans une mare"
+   },
+   {
+    "text": "un minuscule éléphant"
+   },
+   {
+    "text": "une banane qui danse"
+   },
+   {
+    "text": "un fantôme qui fait la lessive"
+   },
+   {
+    "text": "une pieuvre paresseuse"
+   },
+   {
+    "text": "un roi sur un trône de toilettes"
+   },
+   {
+    "text": "une fusée en fromage"
+   }
+  ],
+  "fibber": [
+   {
+    "q": "On a retrouvé du ___ encore comestible dans les tombes de l'Égypte antique.",
+    "a": "miel"
+   },
+   {
+    "q": "La guerre la plus courte de l'histoire, en 1896, opposait le Royaume-Uni à ___.",
+    "a": "Zanzibar"
+   },
+   {
+    "q": "Les crottes du wombat ont la forme de ___.",
+    "a": "cubes"
+   },
+   {
+    "q": "Ernő Rubik, l'inventeur du Rubik's Cube, vient de ___.",
+    "a": "Hongrie"
+   },
+   {
+    "q": "La peau de l'ours polaire est de couleur ___.",
+    "a": "noire"
+   },
+   {
+    "q": "En botanique, la banane est une ___.",
+    "a": "baie"
+   },
+   {
+    "q": "Le décibel doit son nom à Alexander Graham ___.",
+    "a": "Bell"
+   },
+   {
+    "q": "L'animal national de l'Écosse est la ___.",
+    "a": "licorne"
+   },
+   {
+    "q": "Une pieuvre a ___ cœurs.",
+    "a": "trois"
+   },
+   {
+    "q": "La tour Eiffel grandit en été à cause de la ___.",
+    "a": "chaleur"
+   },
+   {
+    "q": "Sur Vénus, un jour dure plus longtemps qu'une ___.",
+    "a": "année"
+   }
+  ],
+  "trivia": [
+   {
+    "q": "Quelle est la capitale de l'Australie ?",
+    "options": [
+     "Sydney",
+     "Melbourne",
+     "Perth",
+     "Canberra"
+    ],
+    "answer": 3
+   },
+   {
+    "q": "Quelle planète est la plus proche du Soleil ?",
+    "options": [
+     "Vénus",
+     "Mars",
+     "Mercure",
+     "Jupiter"
+    ],
+    "answer": 2
+   },
+   {
+    "q": "Combien d'os un adulte a-t-il ?",
+    "options": [
+     "206",
+     "212",
+     "226",
+     "196"
+    ],
+    "answer": 0
+   },
+   {
+    "q": "Quel est le symbole chimique de l'or ?",
+    "options": [
+     "Au",
+     "Ag",
+     "Gd",
+     "Go"
+    ],
+    "answer": 0
+   },
+   {
+    "q": "Quel est le plus grand océan ?",
+    "options": [
+     "Pacifique",
+     "Atlantique",
+     "Indien",
+     "Arctique"
+    ],
+    "answer": 0
+   },
+   {
+    "q": "Qui a peint la Joconde ?",
+    "options": [
+     "Michel-Ange",
+     "Léonard de Vinci",
+     "Raphaël",
+     "Van Gogh"
+    ],
+    "answer": 1
+   },
+   {
+    "q": "Combien de cordes a une guitare classique ?",
+    "options": [
+     "6",
+     "4",
+     "5",
+     "8"
+    ],
+    "answer": 0
+   },
+   {
+    "q": "Quel gaz les plantes absorbent-elles dans l'air ?",
+    "options": [
+     "Oxygène",
+     "Azote",
+     "Dioxyde de carbone",
+     "Hélium"
+    ],
+    "answer": 2
+   },
+   {
+    "q": "Quel est le plus petit nombre premier ?",
+    "options": [
+     "2",
+     "1",
+     "3",
+     "0"
+    ],
+    "answer": 0
+   },
+   {
+    "q": "Quel est le plus grand désert chaud ?",
+    "options": [
+     "Gobi",
+     "Kalahari",
+     "Sahara",
+     "Arabie"
+    ],
+    "answer": 2
+   },
+   {
+    "q": "Combien y a-t-il de continents ?",
+    "options": [
+     "7",
+     "5",
+     "6",
+     "8"
+    ],
+    "answer": 0
+   },
+   {
+    "q": "Quel est l'animal terrestre le plus rapide ?",
+    "options": [
+     "Guépard",
+     "Lion",
+     "Cheval",
+     "Lévrier"
+    ],
+    "answer": 0
+   },
+   {
+    "q": "Quelle est la monnaie du Japon ?",
+    "options": [
+     "Yen",
+     "Won",
+     "Yuan",
+     "Baht"
+    ],
+    "answer": 0
+   },
+   {
+    "q": "Quelle est la substance naturelle la plus dure ?",
+    "options": [
+     "Diamant",
+     "Quartz",
+     "Acier",
+     "Granit"
+    ],
+    "answer": 0
+   },
+   {
+    "q": "En quelle année la Seconde Guerre mondiale s'est-elle terminée ?",
+    "options": [
+     "1939",
+     "1945",
+     "1950",
+     "1918"
+    ],
+    "answer": 1
+   },
+   {
+    "q": "Quel instrument a 88 touches ?",
+    "options": [
+     "Orgue",
+     "Accordéon",
+     "Piano",
+     "Harpe"
+    ],
+    "answer": 2
+   }
+  ],
+  "echo": [
+   {
+    "text": "Citez un fruit",
+    "hints": [
+     "pomme",
+     "banane",
+     "orange"
+    ]
+   },
+   {
+    "text": "Citez une couleur",
+    "hints": [
+     "bleu",
+     "rouge",
+     "vert"
+    ]
+   },
+   {
+    "text": "Citez un animal de compagnie",
+    "hints": [
+     "chien",
+     "chat",
+     "poisson"
+    ]
+   },
+   {
+    "text": "Citez un pays",
+    "hints": [
+     "France",
+     "Italie",
+     "Espagne"
+    ]
+   },
+   {
+    "text": "Citez un aliment du petit-déjeuner",
+    "hints": [
+     "croissant",
+     "café",
+     "tartine"
+    ]
+   },
+   {
+    "text": "Citez un super-héros",
+    "hints": [
+     "Batman",
+     "Spider-Man",
+     "Superman"
+    ]
+   },
+   {
+    "text": "Citez un jour de la semaine",
+    "hints": [
+     "vendredi",
+     "lundi",
+     "samedi"
+    ]
+   },
+   {
+    "text": "Citez une ville",
+    "hints": [
+     "Paris",
+     "Lyon",
+     "Marseille"
+    ]
+   },
+   {
+    "text": "Citez un animal de la ferme",
+    "hints": [
+     "vache",
+     "cochon",
+     "poule"
+    ]
+   },
+   {
+    "text": "Citez un objet de cuisine",
+    "hints": [
+     "frigo",
+     "couteau",
+     "four"
+    ]
+   },
+   {
+    "text": "Citez une saison",
+    "hints": [
+     "été",
+     "hiver",
+     "printemps"
+    ]
+   },
+   {
+    "text": "Citez un sport",
+    "hints": [
+     "football",
+     "tennis",
+     "rugby"
+    ]
+   },
+   {
+    "text": "Citez une garniture de pizza",
+    "hints": [
+     "fromage",
+     "jambon",
+     "champignons"
+    ]
+   },
+   {
+    "text": "Citez un instrument de musique",
+    "hints": [
+     "guitare",
+     "piano",
+     "batterie"
+    ]
+   },
+   {
+    "text": "Citez un légume",
+    "hints": [
+     "carotte",
+     "pomme de terre",
+     "courgette"
+    ]
+   },
+   {
+    "text": "Citez un objet dans un sac",
+    "hints": [
+     "téléphone",
+     "portefeuille",
+     "clés"
+    ]
+   }
+  ],
+  "mole": [
+   {
+    "category": "Fruit",
+    "word": "banane"
+   },
+   {
+    "category": "Fruit",
+    "word": "pomme"
+   },
+   {
+    "category": "Animal",
+    "word": "pingouin"
+   },
+   {
+    "category": "Animal",
+    "word": "girafe"
+   },
+   {
+    "category": "Sport",
+    "word": "tennis"
+   },
+   {
+    "category": "Sport",
+    "word": "football"
+   },
+   {
+    "category": "Lieu",
+    "word": "plage"
+   },
+   {
+    "category": "Lieu",
+    "word": "bibliothèque"
+   },
+   {
+    "category": "Plat",
+    "word": "pizza"
+   },
+   {
+    "category": "Plat",
+    "word": "sushi"
+   },
+   {
+    "category": "Métier",
+    "word": "médecin"
+   },
+   {
+    "category": "Métier",
+    "word": "pilote"
+   },
+   {
+    "category": "Instrument",
+    "word": "violon"
+   },
+   {
+    "category": "Instrument",
+    "word": "batterie"
+   },
+   {
+    "category": "Véhicule",
+    "word": "vélo"
+   },
+   {
+    "category": "Véhicule",
+    "word": "sous-marin"
+   }
+  ]
+ }
+}

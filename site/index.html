@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Couchcade demo</title>
+<meta name="description" content="Couchcade runs here in your browser. The same game engine as the self hosted server, compiled to WebAssembly, with bots as the other players.">
+<link rel="icon" href="app/logo.svg" type="image/svg+xml">
+<style>
+:root { --bg: #14111f; --card: #261f3d; --ink: #f4f1ff; --mute: #a69fc4; --accent: #8b5cf6; --accent2: #ff5d73; }
+@media (prefers-color-scheme: light) { :root { --bg: #f6f3ff; --card: #fff; --ink: #1d1830; --mute: #6b6488; } }
+* { box-sizing: border-box; }
+body { margin: 0; font-family: ui-rounded, "Segoe UI", system-ui, sans-serif; background: var(--bg); color: var(--ink); min-height: 100vh; }
+header { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; padding: 14px 24px; }
+header h1 { margin: 0; font-size: 1.2rem; display: flex; align-items: center; gap: 10px; }
+header p { margin: 0; color: var(--mute); flex: 1; min-width: 260px; }
+a.btn, button { border: 0; border-radius: 12px; padding: 9px 16px; font: inherit; font-weight: 700; color: #fff; background: linear-gradient(135deg, var(--accent), var(--accent2)); text-decoration: none; cursor: pointer; }
+button.ghost { background: var(--card); color: var(--ink); }
+main { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 18px; padding: 0 24px 24px; align-items: start; }
+.tv { aspect-ratio: 16 / 10; width: 100%; border: 0; border-radius: 18px; background: #000; box-shadow: 0 14px 40px rgba(0,0,0,.4); }
+.phones { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
+.phone { width: 300px; height: 620px; border: 8px solid #0b0910; border-radius: 34px; background: #000; box-shadow: 0 14px 40px rgba(0,0,0,.4); }
+.note { grid-column: 1 / -1; color: var(--mute); text-align: center; margin: 0; }
+.loading { padding: 80px; text-align: center; color: var(--mute); grid-column: 1 / -1; }
+@media (max-width: 1100px) { main { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<header>
+  <h1><img src="app/logo.svg" alt="" width="32" height="32"> Couchcade</h1>
+  <p>The full game engine, compiled to WebAssembly and running in this tab. The other players are bots. Pick a game on the left and play on the phone.</p>
+  <button class="ghost" id="more" type="button" hidden>Add a phone</button>
+  <a class="btn" href="https://github.com/Arthur031221/Couchcade">Get the server</a>
+</header>
+<main id="main"><p class="loading" id="loading">Loading the engine...</p></main>
+<script src="wasm_exec.js"></script>
+<script>
+const NAMES = ["You", "Sam", "Riku"];
+let phones = 0, code = "";
+function boot() {
+  const main = document.getElementById("main");
+  document.getElementById("loading").remove();
+  const tv = document.createElement("iframe");
+  tv.className = "tv"; tv.src = "app/index.html"; tv.dataset.ns = "tv"; tv.title = "TV screen";
+  const box = document.createElement("div"); box.className = "phones"; box.id = "phones";
+  main.append(tv, box);
+  const note = document.createElement("p"); note.className = "note";
+  note.textContent = "Tip: press Add 3 bots on the TV first, then choose a game.";
+  main.append(note);
+  const wait = setInterval(() => {
+    const t = tv.contentWindow && tv.contentWindow.__couchTV;
+    if (t && t.S.room) { clearInterval(wait); code = t.S.room.code; addPhone(); document.getElementById("more").hidden = false; }
+  }, 150);
+}
+function addPhone() {
+  if (phones >= NAMES.length) return;
+  const f = document.createElement("iframe");
+  f.className = "phone"; f.dataset.ns = "p" + phones; f.title = "Phone " + (phones + 1);
+  f.src = `app/play.html?c=${code}&name=${NAMES[phones++]}`;
+  document.getElementById("phones").append(f);
+  if (phones >= NAMES.length) document.getElementById("more").hidden = true;
+}
+document.getElementById("more").onclick = addPhone;
+const go = new Go();
+WebAssembly.instantiateStreaming(fetch("couchcade.wasm"), go.importObject).then((r) => { window.__couchReady = boot; go.run(r.instance); });
+</script>
+</body>
+</html>

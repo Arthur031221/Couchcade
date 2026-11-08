@@ -1,0 +1,7 @@
+/couchcade
+/dist/
+/_site/
+node_modules/
+*.test
+/e2e/shots/
+.DS_Store

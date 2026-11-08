@@ -1,0 +1,486 @@
+{
+ "id": "core-pt-BR",
+ "lang": "pt-BR",
+ "name": "Core prompts",
+ "author": "Couchcade",
+ "items": {
+  "squiggle": [
+   {
+    "text": "um dragão sonolento"
+   },
+   {
+    "text": "uma pizza de skate"
+   },
+   {
+    "text": "um gato astronauta"
+   },
+   {
+    "text": "uma torradeira assombrada"
+   },
+   {
+    "text": "um pinguim na praia"
+   },
+   {
+    "text": "um robô comendo espaguete"
+   },
+   {
+    "text": "um caracol gigante"
+   },
+   {
+    "text": "uma girafa altíssima"
+   },
+   {
+    "text": "um dinossauro de guarda-chuva"
+   },
+   {
+    "text": "uma água-viva na banheira"
+   },
+   {
+    "text": "um mago de bicicleta"
+   },
+   {
+    "text": "um ninja sorrateiro"
+   },
+   {
+    "text": "um peixe de bicicleta"
+   },
+   {
+    "text": "um bolo de aniversário pegando fogo"
+   },
+   {
+    "text": "uma nuvem mal-humorada"
+   },
+   {
+    "text": "um monstro embaixo da cama"
+   },
+   {
+    "text": "um boneco de neve no verão"
+   },
+   {
+    "text": "um navio pirata na lagoa"
+   },
+   {
+    "text": "um elefante minúsculo"
+   },
+   {
+    "text": "uma banana dançando"
+   },
+   {
+    "text": "um fantasma lavando roupa"
+   },
+   {
+    "text": "um polvo preguiçoso"
+   },
+   {
+    "text": "um rei no trono do banheiro"
+   },
+   {
+    "text": "um foguete de queijo"
+   }
+  ],
+  "fibber": [
+   {
+    "q": "Nos túmulos do Egito Antigo foi encontrado ___ ainda comestível.",
+    "a": "mel"
+   },
+   {
+    "q": "A guerra mais curta da história, em 1896, foi entre o Reino Unido e ___.",
+    "a": "Zanzibar"
+   },
+   {
+    "q": "As fezes do vombate têm formato de ___.",
+    "a": "cubos"
+   },
+   {
+    "q": "Ernő Rubik, o inventor do cubo mágico, é da ___.",
+    "a": "Hungria"
+   },
+   {
+    "q": "A pele do urso-polar é ___.",
+    "a": "preta"
+   },
+   {
+    "q": "Botanicamente, a banana é uma ___.",
+    "a": "baga"
+   },
+   {
+    "q": "A unidade decibel homenageia Alexander Graham ___.",
+    "a": "Bell"
+   },
+   {
+    "q": "O animal nacional da Escócia é o ___.",
+    "a": "unicórnio"
+   },
+   {
+    "q": "Um polvo tem ___ corações.",
+    "a": "três"
+   },
+   {
+    "q": "A Torre Eiffel fica mais alta no verão por causa do ___.",
+    "a": "calor"
+   },
+   {
+    "q": "Em Vênus, um dia dura mais que um ___.",
+    "a": "ano"
+   }
+  ],
+  "trivia": [
+   {
+    "q": "Qual é a capital da Austrália?",
+    "options": [
+     "Sydney",
+     "Melbourne",
+     "Perth",
+     "Camberra"
+    ],
+    "answer": 3
+   },
+   {
+    "q": "Qual planeta é o mais próximo do Sol?",
+    "options": [
+     "Vênus",
+     "Marte",
+     "Mercúrio",
+     "Júpiter"
+    ],
+    "answer": 2
+   },
+   {
+    "q": "Quantos ossos tem um adulto?",
+    "options": [
+     "206",
+     "212",
+     "226",
+     "196"
+    ],
+    "answer": 0
+   },
+   {
+    "q": "Qual é o símbolo químico do ouro?",
+    "options": [
+     "Au",
+     "Ag",
+     "Gd",
+     "Go"
+    ],
+    "answer": 0
+   },
+   {
+    "q": "Qual é o maior oceano?",
+    "options": [
+     "Pacífico",
+     "Atlântico",
+     "Índico",
+     "Ártico"
+    ],
+    "answer": 0
+   },
+   {
+    "q": "Quem pintou a Mona Lisa?",
+    "options": [
+     "Michelangelo",
+     "Leonardo da Vinci",
+     "Rafael",
+     "Van Gogh"
+    ],
+    "answer": 1
+   },
+   {
+    "q": "Quantas cordas tem um violão comum?",
+    "options": [
+     "6",
+     "4",
+     "5",
+     "8"
+    ],
+    "answer": 0
+   },
+   {
+    "q": "Qual gás as plantas absorvem do ar?",
+    "options": [
+     "Oxigênio",
+     "Nitrogênio",
+     "Gás carbônico",
+     "Hélio"
+    ],
+    "answer": 2
+   },
+   {
+    "q": "Qual é o menor número primo?",
+    "options": [
+     "2",
+     "1",
+     "3",
+     "0"
+    ],
+    "answer": 0
+   },
+   {
+    "q": "Qual é o maior deserto quente?",
+    "options": [
+     "Gobi",
+     "Kalahari",
+     "Saara",
+     "Arábico"
+    ],
+    "answer": 2
+   },
+   {
+    "q": "Quantos continentes existem?",
+    "options": [
+     "7",
+     "5",
+     "6",
+     "8"
+    ],
+    "answer": 0
+   },
+   {
+    "q": "Qual é o animal terrestre mais rápido?",
+    "options": [
+     "Guepardo",
+     "Leão",
+     "Cavalo",
+     "Galgo"
+    ],
+    "answer": 0
+   },
+   {
+    "q": "Qual é a moeda do Japão?",
+    "options": [
+     "Iene",
+     "Won",
+     "Yuan",
+     "Baht"
+    ],
+    "answer": 0
+   },
+   {
+    "q": "Qual é a substância natural mais dura?",
+    "options": [
+     "Diamante",
+     "Quartzo",
+     "Aço",
+     "Granito"
+    ],
+    "answer": 0
+   },
+   {
+    "q": "Em que ano terminou a Segunda Guerra Mundial?",
+    "options": [
+     "1939",
+     "1945",
+     "1950",
+     "1918"
+    ],
+    "answer": 1
+   },
+   {
+    "q": "Qual instrumento tem 88 teclas?",
+    "options": [
+     "Órgão",
+     "Acordeão",
+     "Piano",
+     "Harpa"
+    ],
+    "answer": 2
+   }
+  ],
+  "echo": [
+   {
+    "text": "Diga uma fruta",
+    "hints": [
+     "maçã",
+     "banana",
+     "laranja"
+    ]
+   },
+   {
+    "text": "Diga uma cor",
+    "hints": [
+     "azul",
+     "vermelho",
+     "verde"
+    ]
+   },
+   {
+    "text": "Diga um animal de estimação",
+    "hints": [
+     "cachorro",
+     "gato",
+     "peixe"
+    ]
+   },
+   {
+    "text": "Diga um país",
+    "hints": [
+     "Brasil",
+     "Argentina",
+     "Portugal"
+    ]
+   },
+   {
+    "text": "Diga algo do café da manhã",
+    "hints": [
+     "pão",
+     "café",
+     "tapioca"
+    ]
+   },
+   {
+    "text": "Diga um super-herói",
+    "hints": [
+     "Batman",
+     "Homem-Aranha",
+     "Superman"
+    ]
+   },
+   {
+    "text": "Diga um dia da semana",
+    "hints": [
+     "sexta",
+     "segunda",
+     "sábado"
+    ]
+   },
+   {
+    "text": "Diga uma cidade",
+    "hints": [
+     "São Paulo",
+     "Rio de Janeiro",
+     "Salvador"
+    ]
+   },
+   {
+    "text": "Diga um animal de fazenda",
+    "hints": [
+     "vaca",
+     "porco",
+     "galinha"
+    ]
+   },
+   {
+    "text": "Diga algo da cozinha",
+    "hints": [
+     "geladeira",
+     "faca",
+     "fogão"
+    ]
+   },
+   {
+    "text": "Diga uma estação do ano",
+    "hints": [
+     "verão",
+     "inverno",
+     "primavera"
+    ]
+   },
+   {
+    "text": "Diga um esporte",
+    "hints": [
+     "futebol",
+     "vôlei",
+     "basquete"
+    ]
+   },
+   {
+    "text": "Diga um ingrediente de pizza",
+    "hints": [
+     "queijo",
+     "calabresa",
+     "cogumelo"
+    ]
+   },
+   {
+    "text": "Diga um instrumento musical",
+    "hints": [
+     "violão",
+     "piano",
+     "bateria"
+    ]
+   },
+   {
+    "text": "Diga um legume",
+    "hints": [
+     "cenoura",
+     "batata",
+     "abobrinha"
+    ]
+   },
+   {
+    "text": "Diga algo que vai na mochila",
+    "hints": [
+     "celular",
+     "carteira",
+     "chaves"
+    ]
+   }
+  ],
+  "mole": [
+   {
+    "category": "Fruta",
+    "word": "banana"
+   },
+   {
+    "category": "Fruta",
+    "word": "maçã"
+   },
+   {
+    "category": "Animal",
+    "word": "pinguim"
+   },
+   {
+    "category": "Animal",
+    "word": "girafa"
+   },
+   {
+    "category": "Esporte",
+    "word": "tênis"
+   },
+   {
+    "category": "Esporte",
+    "word": "futebol"
+   },
+   {
+    "category": "Lugar",
+    "word": "praia"
+   },
+   {
+    "category": "Lugar",
+    "word": "biblioteca"
+   },
+   {
+    "category": "Comida",
+    "word": "pizza"
+   },
+   {
+    "category": "Comida",
+    "word": "feijoada"
+   },
+   {
+    "category": "Profissão",
+    "word": "médico"
+   },
+   {
+    "category": "Profissão",
+    "word": "piloto"
+   },
+   {
+    "category": "Instrumento",
+    "word": "violino"
+   },
+   {
+    "category": "Instrumento",
+    "word": "bateria"
+   },
+   {
+    "category": "Veículo",
+    "word": "bicicleta"
+   },
+   {
+    "category": "Veículo",
+    "word": "submarino"
+   }
+  ]
+ }
+}
