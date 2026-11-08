@@ -65,12 +65,12 @@ function lobby() {
     h("div", { class: "join" },
       demo ? null : h("p", { class: "kicker" }, i18n.t("lobby.join_at"), " ", h("b", {}, r.join.replace(/^https?:\/\//, "").replace(/\/play\?c=.*/, ""))),
       h("div", { class: "code", "aria-label": i18n.t("lobby.code") }, [...r.code].map((c, i) => h("span", { key: "cd" + i, style: { "--i": i } }, c))),
-      demo ? h("p", { class: "hint" }, i18n.t("lobby.demo_note")) : h("img", { class: "qr", alt: "QR", src: `api/qr?c=${r.code}` })),
+      demo ? h("p", { class: "hint" }, i18n.t("lobby.demo_note")) : h("img", { class: "qr", alt: i18n.t("a11y.qr"), src: `api/qr?c=${r.code}` })),
     h("div", { class: "side" },
       h("h2", {}, i18n.t("lobby.players"), " ", h("small", {}, r.players.length, "/", r.max), r.audience ? h("small", {}, " · ", i18n.t("lobby.audience", { n: r.audience })) : null),
       r.played ? h("p", { class: "kicker standings" }, i18n.t("lobby.standings")) : null,
       h("div", { class: "chips big" }, r.players.length ? (r.played ? [...r.players].sort((a, b) => b.total - a.total) : r.players).map((p) => chip(p, false, [
-        p.bot ? h("small", { class: "pill" }, "bot") : null, r.played ? h("b", { class: "sc" }, num(p.total)) : null])) : h("p", { class: "hint" }, i18n.t("lobby.waiting"))),
+        p.bot ? h("small", { class: "pill" }, i18n.t("lobby.bot")) : null, r.played ? h("b", { class: "sc" }, num(p.total)) : null])) : h("p", { class: "hint" }, i18n.t("lobby.waiting"))),
       h("div", { class: "games" }, r.catalog.filter((i) => GAMES.includes(i.id)).map((info) => h("button", {
         key: info.id, type: "button", class: "gamecard", disabled: need(info), onclick: () => start(info.id, info),
       }, h("span", { class: "gi" }, ICON[info.id]), h("b", {}, i18n.t(`${info.id}.name`)), h("small", {}, i18n.t(`${info.id}.blurb`)),
@@ -107,12 +107,12 @@ function topbar() {
     r ? h("span", { class: "pill code-pill" }, r.code) : null,
     S.conn !== "open" ? h("span", { class: "pill bad" }, i18n.t("net." + S.conn)) : null,
     h("span", { class: "grow" }),
-    r && r.phase === "lobby" ? i18n.LANGS && h("select", { class: "sel", "aria-label": "Language", onchange: (e) => host("lang", { lang: e.target.value }) },
+    r && r.phase === "lobby" ? i18n.LANGS && h("select", { class: "sel", "aria-label": i18n.t("a11y.language"), onchange: (e) => host("lang", { lang: e.target.value }) },
       i18n.LANGS.map((l) => h("option", { key: l[0], value: l[0], selected: l[0] === r.lang }, l[1]))) : null,
     r && r.phase !== "lobby" ? button(i18n.t("end_game"), () => host("lobby"), "ghost small") : null,
-    h("button", { class: "btn ghost icon", type: "button", onclick: () => { toggleSound(); render(); }, "aria-label": "Sound" }, isMuted() ? "🔇" : "🔊"),
-    h("button", { class: "btn ghost icon", type: "button", onclick: () => { toggleTheme(); render(); }, "aria-label": "Theme" }, "◐"),
-    h("button", { class: "btn ghost icon", type: "button", onclick: () => (document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen()), "aria-label": "Fullscreen" }, "⛶"));
+    h("button", { class: "btn ghost icon", type: "button", onclick: () => { toggleSound(); render(); }, "aria-label": i18n.t("a11y.sound"), "aria-pressed": String(!isMuted()) }, isMuted() ? "🔇" : "🔊"),
+    h("button", { class: "btn ghost icon", type: "button", onclick: () => { toggleTheme(); render(); }, "aria-label": i18n.t("a11y.theme") }, "◐"),
+    h("button", { class: "btn ghost icon", type: "button", onclick: () => (document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen()), "aria-label": i18n.t("a11y.fullscreen") }, "⛶"));
 }
 
 function view() {

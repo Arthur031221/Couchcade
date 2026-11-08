@@ -116,5 +116,11 @@
 "mole.escaped": "{name} était la taupe et s'est échappé",
 "mole.word": "Le mot",
 "mole.guess": "Essai",
-"mole.waiting": "En attente des autres"
+"mole.waiting": "En attente des autres",
+"a11y.sound": "Son",
+"a11y.theme": "Thème",
+"a11y.fullscreen": "Plein écran",
+"a11y.language": "Langue",
+"a11y.qr": "Code QR pour rejoindre",
+"lobby.bot": "bot"
 }

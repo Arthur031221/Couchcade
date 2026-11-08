@@ -116,5 +116,11 @@
 "mole.escaped": "{name} was the mole and got away",
 "mole.word": "The word",
 "mole.guess": "Guess",
-"mole.waiting": "Waiting for the others"
+"mole.waiting": "Waiting for the others",
+"a11y.sound": "Sound",
+"a11y.theme": "Theme",
+"a11y.fullscreen": "Fullscreen",
+"a11y.language": "Language",
+"a11y.qr": "QR code to join",
+"lobby.bot": "bot"
 }

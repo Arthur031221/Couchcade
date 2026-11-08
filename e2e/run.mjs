@@ -230,6 +230,20 @@ await test("every language loads and translates the lobby", async () => {
   await r.close();
 });
 
+await test("button labels and the language picker are announced in the chosen language", async () => {
+  const r = await room();
+  await r.tv.selectOption("select >> nth=0", "ja");
+  await r.tv.waitForFunction(() => document.documentElement.lang === "ja");
+  await r.tv.locator('button[aria-label="サウンド"]').waitFor({ timeout: 3000 });
+  await r.tv.locator('button[aria-label="全画面"]').waitFor({ timeout: 3000 });
+  assert((await r.tv.locator("select").first().getAttribute("aria-label")) === "言語", "language picker label not translated");
+  assert((await r.tv.locator(".qr").getAttribute("alt")) === "参加用のQRコード", "QR alt not translated");
+  const before = await r.tv.locator('button[aria-label="サウンド"]').getAttribute("aria-pressed");
+  await r.tv.locator('button[aria-label="サウンド"]').click();
+  await r.tv.waitForFunction((b) => document.querySelector('button[aria-label="サウンド"]').getAttribute("aria-pressed") !== b, before);
+  await r.close();
+});
+
 await browser.close();
 proc.kill();
 const failed = results.filter((r) => !r[1]).length;

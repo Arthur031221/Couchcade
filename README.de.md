@@ -88,7 +88,7 @@ Die Aufgaben sind einfaches JSON. Ein eigenes Paket in einen Ordner legen und mi
 
 * Go-Unit-Tests für Inhaltsprüfung, Engine und jedes Spiel, in der CI mit Race Detector.
 * Ein Lasttest mit echten WebSockets.
-* 15 Ende-zu-Ende-Tests, die ein echtes Chrome gegen die echte Datei steuern: jedes der sechs Spiele mit Mensch und Bots, Wiederverbinden, Rauswerfen, mehr als 8 Spielende, helles und dunkles Design, kein seitliches Scrollen bei 320 px in jedem Spiel und alle neun Sprachen.
+* 16 Ende-zu-Ende-Tests, die ein echtes Chrome gegen die echte Datei steuern: jedes der sechs Spiele mit Mensch und Bots, Wiederverbinden, Rauswerfen, mehr als 8 Spielende, helles und dunkles Design, kein seitliches Scrollen bei 320 px in jedem Spiel und alle neun Sprachen mit übersetzten Schaltflächenbeschriftungen.
 * Ein Browsertest, der auf der WebAssembly-Demo ein ganzes Spiel spielt.
 
 ## Grenzen

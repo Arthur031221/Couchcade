@@ -88,7 +88,7 @@ Les textes sont du JSON ordinaire. Mettez votre propre pack dans un dossier et l
 
 * Des tests unitaires Go pour la validation du contenu, le moteur et chaque jeu, avec le détecteur de courses en CI.
 * Un test de charge avec de vrais WebSockets.
-* 15 tests de bout en bout qui pilotent un vrai Chrome contre le vrai binaire : chacun des six jeux avec un humain et des bots, la reconnexion, l'exclusion, plus de 8 joueurs, les thèmes clair et sombre, aucun défilement horizontal à 320 px dans chaque jeu et les neuf langues.
+* 16 tests de bout en bout qui pilotent un vrai Chrome contre le vrai binaire : chacun des six jeux avec un humain et des bots, la reconnexion, l'exclusion, plus de 8 joueurs, les thèmes clair et sombre, aucun défilement horizontal à 320 px dans chaque jeu et les neuf langues avec les libellés des boutons traduits.
 * Un test de navigateur qui joue une partie complète sur la démo WebAssembly.
 
 ## Limites

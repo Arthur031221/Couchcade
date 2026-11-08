@@ -116,5 +116,11 @@
 "mole.escaped": "{name} 是臥底，成功逃脫",
 "mole.word": "秘密詞",
 "mole.guess": "猜測",
-"mole.waiting": "等待其他人"
+"mole.waiting": "等待其他人",
+"a11y.sound": "音效",
+"a11y.theme": "主題",
+"a11y.fullscreen": "全螢幕",
+"a11y.language": "語言",
+"a11y.qr": "加入用的 QR Code",
+"lobby.bot": "機器人"
 }

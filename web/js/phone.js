@@ -141,8 +141,8 @@ function view() {
       S.joined ? h("span", { class: "pill code-pill" }, S.code) : null,
       S.conn === "reconnecting" ? h("span", { class: "pill bad" }, i18n.t("net.reconnecting")) : null,
       h("span", { class: "grow" }),
-      h("button", { class: "btn ghost icon", type: "button", onclick: () => { toggleSound(); render(); }, "aria-label": "Sound" }, isMuted() ? "🔇" : "🔊"),
-      h("button", { class: "btn ghost icon", type: "button", onclick: () => { toggleTheme(); render(); }, "aria-label": "Theme" }, "◐")),
+      h("button", { class: "btn ghost icon", type: "button", onclick: () => { toggleSound(); render(); }, "aria-label": i18n.t("a11y.sound"), "aria-pressed": String(!isMuted()) }, isMuted() ? "🔇" : "🔊"),
+      h("button", { class: "btn ghost icon", type: "button", onclick: () => { toggleTheme(); render(); }, "aria-label": i18n.t("a11y.theme") }, "◐")),
     S.room && S.me ? body() : S.conn === "idle" ? joinForm() : h("main", { class: "boot" }, h("p", {}, i18n.t("net." + S.conn))),
     S.err && S.room ? h("div", { class: "toast", role: "alert" }, i18n.t("err." + S.err)) : null);
 }

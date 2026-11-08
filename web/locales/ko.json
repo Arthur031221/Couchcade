@@ -116,5 +116,11 @@
 "mole.escaped": "{name} 님이 스파이였고 도망쳤어요",
 "mole.word": "단어",
 "mole.guess": "추리",
-"mole.waiting": "다른 사람을 기다리는 중"
+"mole.waiting": "다른 사람을 기다리는 중",
+"a11y.sound": "소리",
+"a11y.theme": "테마",
+"a11y.fullscreen": "전체 화면",
+"a11y.language": "언어",
+"a11y.qr": "참가용 QR 코드",
+"lobby.bot": "봇"
 }

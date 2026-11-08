@@ -116,5 +116,11 @@
 "mole.escaped": "{name} 是卧底，成功逃脱",
 "mole.word": "秘密词",
 "mole.guess": "猜测",
-"mole.waiting": "等待其他人"
+"mole.waiting": "等待其他人",
+"a11y.sound": "音效",
+"a11y.theme": "主题",
+"a11y.fullscreen": "全屏",
+"a11y.language": "语言",
+"a11y.qr": "加入用的二维码",
+"lobby.bot": "机器人"
 }

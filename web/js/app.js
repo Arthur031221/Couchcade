@@ -1,5 +1,5 @@
 // Shared shell for the TV and phone pages: language, theme, sound, render loop.
-import { h, patch } from "./dom.js";
+import { patch } from "./dom.js";
 import * as i18n from "./i18n.js";
 import { isMuted, setMuted } from "./sound.js";
 
@@ -38,11 +38,6 @@ export function mount(root, view) {
   let queued = false;
   const draw = () => { queued = false; patch(root, view()); };
   return () => { if (!queued) { queued = true; requestAnimationFrame(draw); } };
-}
-
-export function langSelect(current, langs, onchange) {
-  return h("select", { class: "sel", "aria-label": "Language", value: current, onchange: (e) => onchange(e.target.value) },
-    i18n.LANGS.filter((l) => !langs || langs.includes(l[0]) || true).map((l) => h("option", { key: l[0], value: l[0], selected: l[0] === current }, l[1])));
 }
 
 export { i18n };

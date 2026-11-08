@@ -5,6 +5,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { chromium } from "playwright-core";
 
+const assert = (c, m) => { if (!c) throw new Error(m); };
 const dir = path.resolve(process.argv[2] || "../_site");
 const types = { ".html": "text/html", ".js": "text/javascript", ".css": "text/css", ".json": "application/json", ".svg": "image/svg+xml", ".wasm": "application/wasm", ".png": "image/png" };
 const srv = http.createServer((req, res) => {
@@ -26,8 +27,9 @@ try {
   await tv.locator(".code span").first().waitFor({ timeout: 20000 });
   const phone = page.frameLocator("iframe.phone").first();
   await phone.locator(".me-card").waitFor({ timeout: 10000 });
-  await tv.locator("text=Add 3 bots").click();
+  // The demo seats three bots by itself, so the games are ready to start.
   await tv.locator(".chip").nth(3).waitFor();
+  assert(await tv.locator(".gamecard").nth(3).isEnabled(), "game cards are still locked");
   await tv.locator(".gamecard").nth(3).click();
   await tv.locator(".g-zap").waitFor({ timeout: 5000 });
   await phone.locator(".zapbtn").waitFor();

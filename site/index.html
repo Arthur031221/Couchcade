@@ -28,7 +28,7 @@ main { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 18px; pad
 <body>
 <header>
   <h1><img src="app/logo.svg" alt="" width="32" height="32"> Couchcade</h1>
-  <p>The full game engine, compiled to WebAssembly and running in this tab. The other players are bots. Pick a game on the left and play on the phone.</p>
+  <p>The full game engine, compiled to WebAssembly and running in this tab. The other players are bots. Pick a game on the TV and play on the phone.</p>
   <button class="ghost" id="more" type="button" hidden>Add a phone</button>
   <a class="btn" href="https://github.com/Arthur031221/Couchcade">Get the server</a>
 </header>
@@ -45,11 +45,11 @@ function boot() {
   const box = document.createElement("div"); box.className = "phones"; box.id = "phones";
   main.append(tv, box);
   const note = document.createElement("p"); note.className = "note";
-  note.textContent = "Tip: press Add 3 bots on the TV first, then choose a game.";
+  note.textContent = "Three bots are already seated. Choose a game on the TV, then play on the phone.";
   main.append(note);
   const wait = setInterval(() => {
     const t = tv.contentWindow && tv.contentWindow.__couchTV;
-    if (t && t.S.room) { clearInterval(wait); code = t.S.room.code; addPhone(); document.getElementById("more").hidden = false; }
+    if (t && t.S.room) { clearInterval(wait); code = t.S.room.code; addPhone(); t.host("bots", { n: 3 }); document.getElementById("more").hidden = false; }
   }, 150);
 }
 function addPhone() {

@@ -116,5 +116,11 @@
 "mole.escaped": "{name} era o infiltrado e escapou",
 "mole.word": "A palavra",
 "mole.guess": "Palpite",
-"mole.waiting": "Esperando os outros"
+"mole.waiting": "Esperando os outros",
+"a11y.sound": "Som",
+"a11y.theme": "Tema",
+"a11y.fullscreen": "Tela cheia",
+"a11y.language": "Idioma",
+"a11y.qr": "QR code para entrar",
+"lobby.bot": "bot"
 }

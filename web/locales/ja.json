@@ -116,5 +116,11 @@
 "mole.escaped": "{name} がスパイで、逃げ切りました",
 "mole.word": "言葉",
 "mole.guess": "推理",
-"mole.waiting": "ほかの人を待っています"
+"mole.waiting": "ほかの人を待っています",
+"a11y.sound": "サウンド",
+"a11y.theme": "テーマ",
+"a11y.fullscreen": "全画面",
+"a11y.language": "言語",
+"a11y.qr": "参加用のQRコード",
+"lobby.bot": "ボット"
 }

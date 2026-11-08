@@ -116,5 +116,11 @@
 "mole.escaped": "{name} war der Maulwurf und ist entkommen",
 "mole.word": "Das Wort",
 "mole.guess": "Tipp",
-"mole.waiting": "Warte auf die anderen"
+"mole.waiting": "Warte auf die anderen",
+"a11y.sound": "Ton",
+"a11y.theme": "Design",
+"a11y.fullscreen": "Vollbild",
+"a11y.language": "Sprache",
+"a11y.qr": "QR-Code zum Beitreten",
+"lobby.bot": "Bot"
 }

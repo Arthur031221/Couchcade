@@ -116,5 +116,11 @@
 "mole.escaped": "{name} era el topo y se ha escapado",
 "mole.word": "La palabra",
 "mole.guess": "Intento",
-"mole.waiting": "Esperando a los demás"
+"mole.waiting": "Esperando a los demás",
+"a11y.sound": "Sonido",
+"a11y.theme": "Tema",
+"a11y.fullscreen": "Pantalla completa",
+"a11y.language": "Idioma",
+"a11y.qr": "Código QR para unirse",
+"lobby.bot": "bot"
 }

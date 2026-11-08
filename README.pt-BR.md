@@ -88,7 +88,7 @@ Os textos são JSON comum. Coloque seu próprio pacote em uma pasta e inicie com
 
 * Testes unitários em Go da validação de conteúdo, do motor e de cada jogo, com o detector de corridas na CI.
 * Um teste de carga com WebSockets reais.
-* 15 testes de ponta a ponta que controlam um Chrome real contra o binário real: cada um dos seis jogos com uma pessoa e bots, reconexão, expulsão, mais de 8 jogadores, temas claro e escuro, sem rolagem lateral em 320 px em todos os jogos e os nove idiomas.
+* 16 testes de ponta a ponta que controlam um Chrome real contra o binário real: cada um dos seis jogos com uma pessoa e bots, reconexão, expulsão, mais de 8 jogadores, temas claro e escuro, sem rolagem lateral em 320 px em todos os jogos e os nove idiomas com os rótulos dos botões traduzidos.
 * Um teste de navegador que joga uma partida completa na demo em WebAssembly.
 
 ## Limites

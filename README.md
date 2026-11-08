@@ -11,7 +11,7 @@
 
 <p align="center"><img src="assets/demo.gif" width="760" alt="A Squiggle round on the TV with phones voting"></p>
 
-Open Couchcade on a TV or laptop. Friends scan the QR code, type the four letter code and play from their own phones. You get six original games, an audience mode for crowds, bots for when you're short of people, and nine languages with prompts written for each one. Scores carry across games into a party scoreboard, and phones stay awake while you play.
+Open Couchcade on a TV or laptop. Friends scan the QR code, type the four letter code and play from their own phones. It comes with six original games, an audience mode for crowds, bots for when you're short of people, and nine languages with prompts written for each one. Scores carry across games into a party scoreboard, and phones stay awake while you play.
 
 **Try it now:** the [hosted demo](https://arthur031221.github.io/Couchcade/) runs the same engine compiled to WebAssembly in your browser, with bots filling the seats.
 
@@ -19,7 +19,7 @@ Open Couchcade on a TV or laptop. Friends scan the QR code, type the four letter
 
 With 100 simulated phones (8 seated, 92 in the audience), every phone received the first question within 60 ms of the host pressing Start, in 12 out of 12 runs.
 
-Here's how it was measured. `couchcade loadtest -phones 100` starts a server in process, opens 100 real WebSocket connections over loopback, starts a Brain Teams round from the host connection, and timestamps the first state message that carries the question on every phone. Nothing is rendered, so it measures delivery to the phone's socket. The run was repeated 12 times on a Ryzen 5 7500F. Fan-out ranged from 37.5 to 48.1 ms. The server batches changes into one flush every 50 ms, so most of that figure is the batching tick. It measures the server, not your Wi-Fi, which will add its own delay.
+Here's how it was measured. `couchcade loadtest -phones 100` starts a server in process, opens 100 real WebSocket connections over loopback, starts a Brain Teams round from the host connection, and timestamps the first state message that carries the question on every phone. Nothing is rendered, so it measures delivery to the phone's socket. We ran it 12 times on a Ryzen 5 7500F. Fan-out ranged from 37.5 to 48.1 ms. The server batches changes into one flush every 50 ms, so most of that figure is the batching tick. It measures the server, not your Wi-Fi, which will add its own delay.
 
 ## Before and after
 
@@ -88,7 +88,7 @@ Prompts are plain JSON. Drop your own pack in a folder and start with `-packs ./
 
 * Go unit tests for content validation, the engine and every game, run with the race detector in CI.
 * A load test with real WebSockets.
-* 15 end to end tests that drive real Chrome against the real binary: each of the six games with a human and bots, reconnecting, kicking, more than 8 players, light and dark themes, no sideways scrolling at 320 px in every game, and all nine languages.
+* 16 end to end tests that drive real Chrome against the real binary: each of the six games with a human and bots, reconnecting, kicking, more than 8 players, light and dark themes, no sideways scrolling at 320 px in every game, and all nine languages with translated button labels.
 * A browser test that plays a full game on the WebAssembly demo.
 
 ## Limits
