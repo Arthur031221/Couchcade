@@ -2,6 +2,7 @@ import { h } from "./dom.js";
 import { Link } from "./net.js";
 import { initShell, store, mount, toggleTheme, toggleSound, i18n } from "./app.js";
 import { GAMES, ICON, avatar, button, waiting, chip } from "./common.js";
+import { keepAwake } from "./awake.js";
 import { sfx, isMuted } from "./sound.js";
 import squiggle from "./games/squiggle.js";
 import fibber from "./games/fibber.js";
@@ -36,6 +37,7 @@ function onMessage(m) {
     S.code = m.code;
     history.replaceState(null, "", `?c=${m.code}`);
     sfx.join();
+    keepAwake();
   } else if (m.t === "state") {
     S.room = m.room;
     S.g = m.g;
@@ -71,6 +73,7 @@ function onMessage(m) {
 
 function connect() {
   if (S.code.length !== 4 || !S.name.trim()) return;
+  keepAwake(); // from the Join tap, so iOS allows the fallback video to start
   if (link) link.close();
   link = new Link({
     onmessage: onMessage,
@@ -113,7 +116,8 @@ function body() {
   const r = S.room;
   if (r.phase === "lobby") {
     return h("main", { class: "ctl center stage-in" },
-      h("div", { class: "me-card" }, avatar(r.players.find((p) => p.id === S.me.id) || { name: S.name, color: 0 }, "l"), h("b", {}, S.name), S.me.aud ? h("small", {}, i18n.t("audience.label")) : null),
+      h("div", { class: "me-card" }, avatar(r.players.find((p) => p.id === S.me.id) || { name: S.name, color: 0 }, "l"), h("b", {}, S.name), S.me.aud ? h("small", {}, i18n.t("audience.label")) : null,
+        r.played && !S.me.aud ? h("small", {}, i18n.t("final.total"), ": ", S.me.total, " ", i18n.t("pts")) : null),
       waiting(C, S.me.aud ? i18n.t("audience.lobby") : i18n.t("phone.lobby")),
       h("div", { class: "chips" }, r.players.map((p) => chip(p, false))),
       hostPanel());
@@ -122,7 +126,8 @@ function body() {
     const sorted = [...r.players].sort((a, b) => b.score - a.score);
     const rank = sorted.findIndex((p) => p.id === S.me.id) + 1;
     return h("main", { class: "ctl center stage-in" }, h("p", { class: "kicker" }, i18n.t("final.title")),
-      h("h1", { class: "mega" }, rank ? "#" + rank : "—"), h("p", { class: "big" }, S.me.score, " ", i18n.t("pts")), hostPanel(),
+      h("h1", { class: "mega" }, rank ? "#" + rank : "—"), h("p", { class: "big" }, S.me.score, " ", i18n.t("pts")),
+      r.played > 1 && !S.me.aud ? h("p", { class: "hint" }, i18n.t("final.total"), ": ", S.me.total, " ", i18n.t("pts")) : null, hostPanel(),
       S.me.host ? button(i18n.t("final.again"), () => host("start", { game: r.game }), "primary wide") : null);
   }
   return h("main", { class: `game g-${r.game}`, "data-phase": S.g.phase },

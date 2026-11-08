@@ -11,7 +11,7 @@
 
 <p align="center"><img src="assets/demo.gif" width="760" alt="テレビ上のSquiggleのラウンドと、投票するスマホ"></p>
 
-テレビやノートPCでCouchcadeを開き、友だちがQRコードを読み取って4文字のコードを入力すれば、自分のスマホで遊べます。オリジナルのゲームが6つ、大人数向けの観戦モード、人数が足りないときのボット、そして9言語に対応していて、お題は言語ごとに書き下ろしています。
+テレビやノートPCでCouchcadeを開き、友だちがQRコードを読み取って4文字のコードを入力すれば、自分のスマホで遊べます。オリジナルのゲームが6つ、大人数向けの観戦モード、人数が足りないときのボット、そして9言語に対応していて、お題は言語ごとに書き下ろしています。ゲームをまたいでポイントが総合順位に積み上がり、プレイ中はスマホの画面も消えません。
 
 **すぐ試す：** [オンラインデモ](https://arthur031221.github.io/Couchcade/)では、同じエンジンをWebAssemblyにしてブラウザで動かし、空席はボットが埋めます。
 
@@ -64,10 +64,8 @@ couchcade serve
 go install github.com/Arthur031221/Couchcade/cmd/couchcade@latest
 
 # Docker
-docker run --rm -p 8080:8080 ghcr.io/arthur031221/couchcade serve -addr :8080 -public-url http://YOUR-LAN-IP:8080
-
-# Homebrew
-brew install Arthur031221/tap/couchcade
+docker build -t couchcade https://github.com/Arthur031221/Couchcade.git
+docker run --rm -p 8080:8080 couchcade serve -addr :8080 -public-url http://YOUR-LAN-IP:8080
 
 # Source
 git clone https://github.com/Arthur031221/Couchcade && cd Couchcade
@@ -90,7 +88,7 @@ go build -o couchcade ./cmd/couchcade
 
 * コンテンツ検証、エンジン、全ゲームのGoユニットテスト。CIではrace detectorを有効にしています。
 * 本物のWebSocketを使った負荷テスト。
-* 本物のChromeで本物のバイナリを操作する13件のエンドツーエンドテスト：6つのゲームそれぞれを人間とボットで、再接続、キック、9人目以降の参加、ライトとダークのテーマ、全ゲームで幅320pxでも横スクロールしないこと、9言語すべて。
+* 本物のChromeで本物のバイナリを操作する15件のエンドツーエンドテスト：6つのゲームそれぞれを人間とボットで、再接続、キック、9人目以降の参加、ライトとダークのテーマ、全ゲームで幅320pxでも横スクロールしないこと、9言語すべて。
 * WebAssemblyデモで1ゲームを最後まで遊ぶブラウザテスト。
 
 ## 制限

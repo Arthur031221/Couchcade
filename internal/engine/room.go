@@ -26,6 +26,7 @@ type Player struct {
 	Name     string
 	Color    int
 	Score    int
+	Total    int // points from finished games, kept until the host resets standings
 	Bot      bool
 	Muted    bool
 	Audience bool
@@ -44,6 +45,7 @@ type Room struct {
 	lang       string
 	family     bool
 	rounds     int
+	played     int // games finished since the last reset
 	maxPlayers int
 	players    map[string]*Player
 	order      []string
@@ -216,8 +218,11 @@ func (r *Room) promoteAudience() {
 }
 
 func (r *Room) startGame(id string, rounds int) string {
-	if r.phase != PhaseLobby {
+	if r.phase != PhaseLobby && r.phase != PhaseFinal {
 		return "busy"
+	}
+	if r.phase == PhaseFinal {
+		r.promoteAudience() // "Play again" skips the lobby, so seat waiting audience first
 	}
 	g := r.m.cfg.Games(id)
 	if g == nil {
@@ -276,6 +281,15 @@ func (r *Room) host(op string, raw map[string]json.RawMessage) string {
 				r.dirty = true
 			}
 		}
+	case "resettotals":
+		if r.phase != PhaseLobby {
+			return "busy"
+		}
+		r.played = 0
+		for _, p := range r.players {
+			p.Total = 0
+		}
+		r.dirty = true
 	case "family":
 		var v bool
 		_ = json.Unmarshal(raw["on"], &v)
@@ -373,6 +387,10 @@ func (r *Room) Tick(now time.Time) {
 		r.dirty = true
 		if r.game.Done() {
 			r.phase, r.finalAt = PhaseFinal, now.Add(finalHold)
+			r.played++
+			for _, p := range r.players {
+				p.Total += p.Score
+			}
 		}
 	case PhaseFinal:
 		if !now.Before(r.finalAt) {
@@ -402,6 +420,7 @@ type PlayerView struct {
 	Name  string `json:"name"`
 	Color int    `json:"color"`
 	Score int    `json:"score"`
+	Total int    `json:"total"`
 	On    bool   `json:"on"`
 	Bot   bool   `json:"bot,omitempty"`
 	Muted bool   `json:"muted,omitempty"`
@@ -414,6 +433,7 @@ type roomView struct {
 	Phase    string       `json:"phase"`
 	Game     string       `json:"game,omitempty"`
 	Rounds   int          `json:"rounds"`
+	Played   int          `json:"played"`
 	Max      int          `json:"max"`
 	Host     string       `json:"host"`
 	Join     string       `json:"join"`
@@ -424,11 +444,11 @@ type roomView struct {
 }
 
 func (r *Room) roomJSON() []byte {
-	v := roomView{Code: r.code, Lang: r.lang, Family: r.family, Phase: r.phase, Game: r.gameID, Rounds: r.rounds,
+	v := roomView{Code: r.code, Lang: r.lang, Family: r.family, Phase: r.phase, Game: r.gameID, Rounds: r.rounds, Played: r.played,
 		Max: r.maxPlayers, Host: r.hostID(), Join: r.m.joinURL(r.code), Audience: r.audienceCount(), Players: []PlayerView{}}
 	for _, id := range r.seated() {
 		p := r.players[id]
-		v.Players = append(v.Players, PlayerView{p.ID, p.Name, p.Color, p.Score, p.sess != nil || p.Bot, p.Bot, p.Muted})
+		v.Players = append(v.Players, PlayerView{p.ID, p.Name, p.Color, p.Score, p.Total, p.sess != nil || p.Bot, p.Bot, p.Muted})
 	}
 	if r.phase == PhaseLobby {
 		v.Catalog, v.Langs = r.m.cfg.Catalog, r.m.langs()
@@ -468,7 +488,7 @@ func (r *Room) flush() {
 		if p.sess == nil {
 			continue
 		}
-		me := map[string]any{"id": id, "aud": p.Audience, "host": id == r.hostID(), "score": p.Score, "muted": p.Muted}
+		me := map[string]any{"id": id, "aud": p.Audience, "host": id == r.hostID(), "score": p.Score, "total": p.Total, "muted": p.Muted}
 		if c != nil {
 			me["g"] = r.game.Me(c, id)
 		}

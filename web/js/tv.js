@@ -68,7 +68,9 @@ function lobby() {
       demo ? h("p", { class: "hint" }, i18n.t("lobby.demo_note")) : h("img", { class: "qr", alt: "QR", src: `api/qr?c=${r.code}` })),
     h("div", { class: "side" },
       h("h2", {}, i18n.t("lobby.players"), " ", h("small", {}, r.players.length, "/", r.max), r.audience ? h("small", {}, " · ", i18n.t("lobby.audience", { n: r.audience })) : null),
-      h("div", { class: "chips big" }, r.players.length ? r.players.map((p) => chip(p, false, p.bot ? h("small", { class: "pill" }, "bot") : null)) : h("p", { class: "hint" }, i18n.t("lobby.waiting"))),
+      r.played ? h("p", { class: "kicker standings" }, i18n.t("lobby.standings")) : null,
+      h("div", { class: "chips big" }, r.players.length ? (r.played ? [...r.players].sort((a, b) => b.total - a.total) : r.players).map((p) => chip(p, false, [
+        p.bot ? h("small", { class: "pill" }, "bot") : null, r.played ? h("b", { class: "sc" }, num(p.total)) : null])) : h("p", { class: "hint" }, i18n.t("lobby.waiting"))),
       h("div", { class: "games" }, r.catalog.filter((i) => GAMES.includes(i.id)).map((info) => h("button", {
         key: info.id, type: "button", class: "gamecard", disabled: need(info), onclick: () => start(info.id, info),
       }, h("span", { class: "gi" }, ICON[info.id]), h("b", {}, i18n.t(`${info.id}.name`)), h("small", {}, i18n.t(`${info.id}.blurb`)),
@@ -76,9 +78,15 @@ function lobby() {
       h("div", { class: "row" },
         button(i18n.t("lobby.bots"), () => host("bots", { n: 3 }), "ghost"),
         r.players.some((p) => p.bot) ? button(i18n.t("lobby.nobots"), () => host("nobots"), "ghost") : null,
+        r.played ? button(i18n.t("lobby.reset"), () => host("resettotals"), "ghost") : null,
         h("label", { class: "toggle" }, h("input", { type: "checkbox", checked: r.family, onchange: (e) => host("family", { on: e.target.checked }) }), i18n.t("lobby.family")),
         h("label", { class: "toggle" }, i18n.t("lobby.length"), h("select", { class: "sel", onchange: (e) => { S.rounds = +e.target.value; render(); } },
           [[0, "lobby.len_default"], [2, "lobby.len_short"], [5, "lobby.len_long"]].map(([v, k]) => h("option", { key: v, value: v, selected: S.rounds === v }, i18n.t(k))))))));
+}
+
+// The party total, shown on the final screen once more than one game has been played.
+function total(p) {
+  return S.room.played > 1 ? h("small", { class: "total" }, i18n.t("final.total"), " ", p.total) : null;
 }
 
 function final() {
@@ -87,8 +95,8 @@ function final() {
   const order = [1, 0, 2].filter((i) => top[i]);
   return h("main", { class: "final stage-in" }, h("h1", { class: "huge" }, i18n.t("final.title")),
     h("div", { class: "podium" }, order.map((i) => h("div", { key: "pd" + top[i].id, class: `step s${i + 1}`, style: { "--c": color(top[i]) } },
-      avatar(top[i], "l"), h("b", {}, top[i].name), num(top[i].score), h("div", { class: "block" }, i + 1)))),
-    h("div", { class: "rest" }, sorted.slice(3).map((p, i) => h("div", { key: "r" + p.id, class: "line" }, h("span", {}, i + 4), avatar(p, "s"), h("b", {}, p.name), num(p.score)))),
+      avatar(top[i], "l"), h("b", {}, top[i].name), num(top[i].score), total(top[i]), h("div", { class: "block" }, i + 1)))),
+    h("div", { class: "rest" }, sorted.slice(3).map((p, i) => h("div", { key: "r" + p.id, class: "line" }, h("span", {}, i + 4), avatar(p, "s"), h("b", {}, p.name), total(p), num(p.score)))),
     h("div", { class: "row" }, button(i18n.t("final.again"), () => host("start", { game: S.room.game, rounds: S.rounds }), "primary"), button(i18n.t("final.lobby"), () => host("lobby"), "ghost")));
 }
 

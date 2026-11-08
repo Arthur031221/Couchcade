@@ -11,7 +11,7 @@
 
 <p align="center"><img src="assets/demo.gif" width="760" alt="Uma rodada de Squiggle na TV com celulares votando"></p>
 
-Abra o Couchcade na TV ou no notebook. Os amigos escaneiam o QR code, digitam o código de quatro letras e jogam pelo próprio celular. Ele traz seis jogos originais, um modo plateia para grupos grandes, bots para quando falta gente e nove idiomas com textos escritos para cada um.
+Abra o Couchcade na TV ou no notebook. Os amigos escaneiam o QR code, digitam o código de quatro letras e jogam pelo próprio celular. Ele traz seis jogos originais, um modo plateia para grupos grandes, bots para quando falta gente e nove idiomas com textos escritos para cada um. Os pontos se acumulam entre os jogos em uma classificação da festa, e os celulares não apagam a tela durante a partida.
 
 **Experimente agora:** a [demo online](https://arthur031221.github.io/Couchcade/) roda o mesmo motor compilado para WebAssembly no seu navegador, com bots ocupando os lugares.
 
@@ -64,10 +64,8 @@ Baixe um binário na [página de versões](https://github.com/Arthur031221/Couch
 go install github.com/Arthur031221/Couchcade/cmd/couchcade@latest
 
 # Docker
-docker run --rm -p 8080:8080 ghcr.io/arthur031221/couchcade serve -addr :8080 -public-url http://YOUR-LAN-IP:8080
-
-# Homebrew
-brew install Arthur031221/tap/couchcade
+docker build -t couchcade https://github.com/Arthur031221/Couchcade.git
+docker run --rm -p 8080:8080 couchcade serve -addr :8080 -public-url http://YOUR-LAN-IP:8080
 
 # Source
 git clone https://github.com/Arthur031221/Couchcade && cd Couchcade
@@ -90,7 +88,7 @@ Os textos são JSON comum. Coloque seu próprio pacote em uma pasta e inicie com
 
 * Testes unitários em Go da validação de conteúdo, do motor e de cada jogo, com o detector de corridas na CI.
 * Um teste de carga com WebSockets reais.
-* 13 testes de ponta a ponta que controlam um Chrome real contra o binário real: cada um dos seis jogos com uma pessoa e bots, reconexão, expulsão, mais de 8 jogadores, temas claro e escuro, sem rolagem lateral em 320 px em todos os jogos e os nove idiomas.
+* 15 testes de ponta a ponta que controlam um Chrome real contra o binário real: cada um dos seis jogos com uma pessoa e bots, reconexão, expulsão, mais de 8 jogadores, temas claro e escuro, sem rolagem lateral em 320 px em todos os jogos e os nove idiomas.
 * Um teste de navegador que joga uma partida completa na demo em WebAssembly.
 
 ## Limites

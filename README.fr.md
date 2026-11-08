@@ -11,7 +11,7 @@
 
 <p align="center"><img src="assets/demo.gif" width="760" alt="Une manche de Squiggle sur la télé avec des téléphones qui votent"></p>
 
-Ouvrez Couchcade sur une télé ou un ordinateur portable. Vos amis scannent le QR code, saisissent le code de quatre lettres et jouent depuis leur téléphone. Il y a six jeux originaux, un mode public pour les grandes tablées, des bots quand il manque du monde et neuf langues avec des textes écrits pour chacune.
+Ouvrez Couchcade sur une télé ou un ordinateur portable. Vos amis scannent le QR code, saisissent le code de quatre lettres et jouent depuis leur téléphone. Il y a six jeux originaux, un mode public pour les grandes tablées, des bots quand il manque du monde et neuf langues avec des textes écrits pour chacune. Les points s'additionnent d'un jeu à l'autre dans un classement de la soirée, et les téléphones restent allumés pendant la partie.
 
 **À essayer tout de suite :** la [démo en ligne](https://arthur031221.github.io/Couchcade/) fait tourner le même moteur compilé en WebAssembly dans votre navigateur, avec des bots pour remplir les places.
 
@@ -64,10 +64,8 @@ Téléchargez un binaire depuis la [page des versions](https://github.com/Arthur
 go install github.com/Arthur031221/Couchcade/cmd/couchcade@latest
 
 # Docker
-docker run --rm -p 8080:8080 ghcr.io/arthur031221/couchcade serve -addr :8080 -public-url http://YOUR-LAN-IP:8080
-
-# Homebrew
-brew install Arthur031221/tap/couchcade
+docker build -t couchcade https://github.com/Arthur031221/Couchcade.git
+docker run --rm -p 8080:8080 couchcade serve -addr :8080 -public-url http://YOUR-LAN-IP:8080
 
 # Source
 git clone https://github.com/Arthur031221/Couchcade && cd Couchcade
@@ -90,7 +88,7 @@ Les textes sont du JSON ordinaire. Mettez votre propre pack dans un dossier et l
 
 * Des tests unitaires Go pour la validation du contenu, le moteur et chaque jeu, avec le détecteur de courses en CI.
 * Un test de charge avec de vrais WebSockets.
-* 13 tests de bout en bout qui pilotent un vrai Chrome contre le vrai binaire : chacun des six jeux avec un humain et des bots, la reconnexion, l'exclusion, plus de 8 joueurs, les thèmes clair et sombre, aucun défilement horizontal à 320 px dans chaque jeu et les neuf langues.
+* 15 tests de bout en bout qui pilotent un vrai Chrome contre le vrai binaire : chacun des six jeux avec un humain et des bots, la reconnexion, l'exclusion, plus de 8 joueurs, les thèmes clair et sombre, aucun défilement horizontal à 320 px dans chaque jeu et les neuf langues.
 * Un test de navigateur qui joue une partie complète sur la démo WebAssembly.
 
 ## Limites

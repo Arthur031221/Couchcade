@@ -11,7 +11,7 @@
 
 <p align="center"><img src="assets/demo.gif" width="760" alt="TV의 Squiggle 라운드와 투표하는 휴대폰"></p>
 
-TV나 노트북에서 Couchcade를 열고, 친구들이 QR 코드를 스캔해 네 글자 코드를 입력하면 각자의 휴대폰으로 바로 즐길 수 있습니다. 오리지널 게임 6개, 많은 인원을 위한 관객 모드, 사람이 모자랄 때 채워 주는 봇, 그리고 언어마다 따로 쓴 문제가 들어 있는 9개 언어를 지원합니다.
+TV나 노트북에서 Couchcade를 열고, 친구들이 QR 코드를 스캔해 네 글자 코드를 입력하면 각자의 휴대폰으로 바로 즐길 수 있습니다. 오리지널 게임 6개, 많은 인원을 위한 관객 모드, 사람이 모자랄 때 채워 주는 봇, 그리고 언어마다 따로 쓴 문제가 들어 있는 9개 언어를 지원합니다. 점수는 게임이 바뀌어도 파티 종합 순위에 누적되고, 플레이 중에는 휴대폰 화면이 꺼지지 않습니다.
 
 **바로 해 보기:** [온라인 데모](https://arthur031221.github.io/Couchcade/)는 같은 엔진을 WebAssembly로 컴파일해 브라우저에서 실행하며, 빈 자리는 봇이 채웁니다.
 
@@ -64,10 +64,8 @@ couchcade serve
 go install github.com/Arthur031221/Couchcade/cmd/couchcade@latest
 
 # Docker
-docker run --rm -p 8080:8080 ghcr.io/arthur031221/couchcade serve -addr :8080 -public-url http://YOUR-LAN-IP:8080
-
-# Homebrew
-brew install Arthur031221/tap/couchcade
+docker build -t couchcade https://github.com/Arthur031221/Couchcade.git
+docker run --rm -p 8080:8080 couchcade serve -addr :8080 -public-url http://YOUR-LAN-IP:8080
 
 # Source
 git clone https://github.com/Arthur031221/Couchcade && cd Couchcade
@@ -90,7 +88,7 @@ go build -o couchcade ./cmd/couchcade
 
 * 콘텐츠 검증, 엔진, 모든 게임에 대한 Go 단위 테스트. CI에서는 race detector를 켭니다.
 * 실제 WebSocket을 쓰는 부하 테스트.
-* 실제 Chrome으로 실제 실행 파일을 조작하는 13개의 엔드투엔드 테스트: 여섯 게임 각각을 사람과 봇으로, 재접속, 강퇴, 8명 초과 참가, 라이트와 다크 테마, 모든 게임에서 320px 폭에서도 가로 스크롤이 없는지, 아홉 개 언어 전부.
+* 실제 Chrome으로 실제 실행 파일을 조작하는 15개의 엔드투엔드 테스트: 여섯 게임 각각을 사람과 봇으로, 재접속, 강퇴, 8명 초과 참가, 라이트와 다크 테마, 모든 게임에서 320px 폭에서도 가로 스크롤이 없는지, 아홉 개 언어 전부.
 * WebAssembly 데모에서 한 판을 끝까지 플레이하는 브라우저 테스트.
 
 ## 한계

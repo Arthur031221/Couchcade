@@ -28,13 +28,14 @@ The QR code on the TV encodes that address.
 ## Docker
 
 ```sh
-docker run --rm -p 8080:8080 ghcr.io/arthur031221/couchcade
+docker build -t couchcade https://github.com/Arthur031221/Couchcade.git
+docker run --rm -p 8080:8080 couchcade
 ```
 
 Inside a container the LAN address is not visible, so pass `-public-url`:
 
 ```sh
-docker run --rm -p 8080:8080 ghcr.io/arthur031221/couchcade serve -addr :8080 -public-url http://192.168.1.20:8080
+docker run --rm -p 8080:8080 couchcade serve -addr :8080 -public-url http://192.168.1.20:8080
 ```
 
 ## Behind a reverse proxy

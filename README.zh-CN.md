@@ -11,7 +11,7 @@
 
 <p align="center"><img src="assets/demo.gif" width="760" alt="电视上的 Squiggle 回合，手机正在投票"></p>
 
-在电视或笔记本上打开 Couchcade，朋友扫描二维码，输入四个字母的房间代码，就能用自己的手机玩。内置六款原创游戏、可容纳大批观众的观众模式、人数不够时可以补位的机器人，以及九种语言，每种语言的题目都是专门写的。
+在电视或笔记本上打开 Couchcade，朋友扫描二维码，输入四个字母的房间代码，就能用自己的手机玩。内置六款原创游戏、可容纳大批观众的观众模式、人数不够时可以补位的机器人，以及九种语言，每种语言的题目都是专门写的。分数会跨游戏累积成派对总排名，游戏期间手机也不会熄屏。
 
 **马上试玩：** [在线演示](https://arthur031221.github.io/Couchcade/)把同一个引擎编译成 WebAssembly 在浏览器里运行，座位由机器人补满。
 
@@ -64,10 +64,8 @@ couchcade serve
 go install github.com/Arthur031221/Couchcade/cmd/couchcade@latest
 
 # Docker
-docker run --rm -p 8080:8080 ghcr.io/arthur031221/couchcade serve -addr :8080 -public-url http://YOUR-LAN-IP:8080
-
-# Homebrew
-brew install Arthur031221/tap/couchcade
+docker build -t couchcade https://github.com/Arthur031221/Couchcade.git
+docker run --rm -p 8080:8080 couchcade serve -addr :8080 -public-url http://YOUR-LAN-IP:8080
 
 # Source
 git clone https://github.com/Arthur031221/Couchcade && cd Couchcade
@@ -90,7 +88,7 @@ go build -o couchcade ./cmd/couchcade
 
 * 内容校验、引擎和每款游戏的 Go 单元测试，CI 中开启 race detector。
 * 使用真实 WebSocket 的负载测试。
-* 13 项端到端测试，用真实的 Chrome 操作真实的可执行文件：六款游戏各自搭配真人和机器人、断线重连、踢人、超过 8 位玩家、浅色和深色主题、每款游戏在 320 px 宽度下不会横向滚动，以及全部九种语言。
+* 15 项端到端测试，用真实的 Chrome 操作真实的可执行文件：六款游戏各自搭配真人和机器人、断线重连、踢人、超过 8 位玩家、浅色和深色主题、每款游戏在 320 px 宽度下不会横向滚动，以及全部九种语言。
 * 在 WebAssembly 演示页上完整玩一局游戏的浏览器测试。
 
 ## 限制

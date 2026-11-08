@@ -11,7 +11,7 @@
 
 <p align="center"><img src="assets/demo.gif" width="760" alt="Eine Squiggle-Runde auf dem Fernseher, Handys stimmen ab"></p>
 
-Couchcade auf dem Fernseher oder Laptop öffnen. Freunde scannen den QR-Code, tippen den Code aus vier Buchstaben ein und spielen mit dem eigenen Handy. Es gibt sechs eigene Spiele, einen Zuschauermodus für große Runden, Bots für den Fall, dass Leute fehlen, und neun Sprachen mit Aufgaben, die für jede Sprache eigens geschrieben wurden.
+Couchcade auf dem Fernseher oder Laptop öffnen. Freunde scannen den QR-Code, tippen den Code aus vier Buchstaben ein und spielen mit dem eigenen Handy. Es gibt sechs eigene Spiele, einen Zuschauermodus für große Runden, Bots für den Fall, dass Leute fehlen, und neun Sprachen mit Aufgaben, die für jede Sprache eigens geschrieben wurden. Die Punkte laufen über alle Spiele hinweg in eine Gesamtwertung des Abends, und die Handys bleiben beim Spielen wach.
 
 **Gleich ausprobieren:** Die [Online-Demo](https://arthur031221.github.io/Couchcade/) lässt dieselbe Engine als WebAssembly im Browser laufen, Bots besetzen die Plätze.
 
@@ -64,10 +64,8 @@ Eine Datei von der [Releases-Seite](https://github.com/Arthur031221/Couchcade/re
 go install github.com/Arthur031221/Couchcade/cmd/couchcade@latest
 
 # Docker
-docker run --rm -p 8080:8080 ghcr.io/arthur031221/couchcade serve -addr :8080 -public-url http://YOUR-LAN-IP:8080
-
-# Homebrew
-brew install Arthur031221/tap/couchcade
+docker build -t couchcade https://github.com/Arthur031221/Couchcade.git
+docker run --rm -p 8080:8080 couchcade serve -addr :8080 -public-url http://YOUR-LAN-IP:8080
 
 # Source
 git clone https://github.com/Arthur031221/Couchcade && cd Couchcade
@@ -90,7 +88,7 @@ Die Aufgaben sind einfaches JSON. Ein eigenes Paket in einen Ordner legen und mi
 
 * Go-Unit-Tests für Inhaltsprüfung, Engine und jedes Spiel, in der CI mit Race Detector.
 * Ein Lasttest mit echten WebSockets.
-* 13 Ende-zu-Ende-Tests, die ein echtes Chrome gegen die echte Datei steuern: jedes der sechs Spiele mit Mensch und Bots, Wiederverbinden, Rauswerfen, mehr als 8 Spielende, helles und dunkles Design, kein seitliches Scrollen bei 320 px in jedem Spiel und alle neun Sprachen.
+* 15 Ende-zu-Ende-Tests, die ein echtes Chrome gegen die echte Datei steuern: jedes der sechs Spiele mit Mensch und Bots, Wiederverbinden, Rauswerfen, mehr als 8 Spielende, helles und dunkles Design, kein seitliches Scrollen bei 320 px in jedem Spiel und alle neun Sprachen.
 * Ein Browsertest, der auf der WebAssembly-Demo ein ganzes Spiel spielt.
 
 ## Grenzen

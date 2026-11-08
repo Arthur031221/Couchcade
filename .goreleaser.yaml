@@ -24,14 +24,3 @@ changelog:
   sort: asc
   filters:
     exclude: ["^docs:", "^test:"]
-dockers:
-  - image_templates: ["ghcr.io/arthur031221/couchcade:{{ .Version }}", "ghcr.io/arthur031221/couchcade:latest"]
-    dockerfile: Dockerfile.release
-    use: docker
-brews:
-  - repository:
-      owner: Arthur031221
-      name: homebrew-tap
-    homepage: https://github.com/Arthur031221/Couchcade
-    description: Party games for one TV and everyone's phones
-    license: MIT

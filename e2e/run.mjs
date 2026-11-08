@@ -100,14 +100,60 @@ for (const [idx, game] of GAMES.entries()) {
     const stop = { done: false };
     const bot = human(ph, stop);
     try { await r.tv.waitForSelector(".final", { timeout: 90000 }); } finally { stop.done = true; await bot; }
-    const names = await r.tv.locator(".podium b, .rest b").allTextContents();
-    assert(names.includes("Arthur"), "human missing from final scores");
+    await r.tv.waitForFunction(() => [...document.querySelectorAll(".podium b, .rest b")].some((b) => b.textContent === "Arthur"), null, { timeout: 3000 })
+      .catch(() => { throw new Error("human missing from final scores"); });
     const pts = await ph.locator(".mega").textContent();
     assert(/^#\d$/.test(pts), "phone shows no rank: " + pts);
     assert(!r.errors.length, r.errors.join("; "));
     await r.close();
   });
 }
+
+await test("party standings carry across games and can be reset", async () => {
+  const r = await room();
+  const ph = await r.join("Arthur");
+  await r.tv.click("text=Add 3 bots");
+  await r.tv.selectOption("select >> nth=-1", "2");
+  const play = async () => {
+    await r.tv.locator(".gamecard").nth(3).click();
+    await r.tv.waitForSelector(".final", { timeout: 90000 });
+  };
+  await play();
+  assert((await r.tv.locator(".final .total").count()) === 0, "total should wait for a second game");
+  await r.tv.click("text=Back to lobby");
+  await r.tv.waitForSelector(".standings");
+  assert((await r.tv.locator(".lobby .chip .sc").count()) === 4, "every chip should show its total");
+  await play();
+  assert((await r.tv.locator(".final .total").count()) > 0, "final screen shows no party total");
+  assert(/#\d/.test(await ph.locator(".mega").textContent()), "phone shows no rank");
+  assert(await ph.locator("text=Party total").count(), "phone shows no party total");
+  await r.tv.click("text=Play again");
+  await r.tv.waitForSelector(".g-zap", { timeout: 5000 });
+  await r.tv.waitForSelector(".final", { timeout: 90000 });
+  await r.tv.click("text=Back to lobby");
+  await r.tv.click("text=Reset standings");
+  await r.tv.waitForSelector(".standings", { state: "detached" });
+  assert(!r.errors.length, r.errors.join("; "));
+  await r.close();
+});
+
+await test("phones keep the screen awake, with a video fallback on plain http", async () => {
+  const r = await room();
+  const ph = await r.join("Arthur", {});
+  await ph.waitForTimeout(500);
+  assert((await ph.locator("video").count()) === 0 || (await ph.evaluate(() => "wakeLock" in navigator)), "no wake lock and no fallback");
+  const ctx = await browser.newContext({ viewport: { width: 390, height: 780 }, hasTouch: true, isMobile: true });
+  await ctx.addInitScript(() => { Object.defineProperty(navigator, "wakeLock", { value: undefined }); delete Navigator.prototype.wakeLock; });
+  const p2 = await ctx.newPage();
+  await p2.goto(`${base}/play?c=${r.code}`);
+  await p2.fill("input:not(.code)", "Mina");
+  await p2.click(".btn.primary");
+  await p2.waitForSelector(".me-card");
+  await p2.waitForSelector("video", { state: "attached" });
+  await p2.waitForFunction(() => { const v = document.querySelector("video"); return v && !v.paused; }, null, { timeout: 5000 });
+  assert(!r.errors.length, r.errors.join("; "));
+  await r.close();
+});
 
 await test("reconnect keeps the same player", async () => {
   const r = await room();

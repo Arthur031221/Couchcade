@@ -158,3 +158,78 @@ func TestPhaseWaitsForTheClockWhenEveryoneIsGone(t *testing.T) {
 		t.Fatalf("game skipped ahead with nobody connected, now in %q", h.phase())
 	}
 }
+
+func TestPartyTotalsCarryAcrossGamesAndReset(t *testing.T) {
+	h := newHarness(t, 3)
+	total := func(i int) int {
+		r, _ := h.tvState()
+		for _, p := range r["players"].([]any) {
+			pm := p.(map[string]any)
+			if pm["name"] == fmt.Sprintf("P%d", i+1) {
+				return int(pm["total"].(float64))
+			}
+		}
+		t.Fatalf("player %d missing", i)
+		return 0
+	}
+	played := func() int { r, _ := h.tvState(); return int(r["played"].(float64)) }
+
+	h.host("start", `,"game":"zap","rounds":1`)
+	h.step(0)
+	h.waitPhase("go")
+	h.act(2, engine.Action{K: "tap"})
+	if !h.until(3*time.Minute, func() bool { return h.roomPhase() == "final" }) {
+		t.Fatal("game never finished")
+	}
+	first := [3]int{h.score(0), h.score(1), h.score(2)}
+	if first[2] <= 0 {
+		t.Fatalf("the player who tapped should have points, got %v", first)
+	}
+	if played() != 1 {
+		t.Fatalf("played = %d after one game, want 1", played())
+	}
+	for i := range first {
+		if total(i) != first[i] {
+			t.Fatalf("P%d total %d, want game score %d", i+1, total(i), first[i])
+		}
+	}
+
+	h.host("lobby", "")
+	h.step(0)
+	if total(2) != first[2] || played() != 1 {
+		t.Fatal("standings must survive the trip back to the lobby")
+	}
+
+	h.start("zap")
+	if h.score(2) != 0 {
+		t.Fatal("a new game must start every game score at zero")
+	}
+	if total(2) != first[2] {
+		t.Fatal("a new game must not touch the party total")
+	}
+	h.host("resettotals", "")
+	h.step(0)
+	if total(2) != first[2] {
+		t.Fatal("standings cannot be reset in the middle of a game")
+	}
+	h.host("lobby", "")
+	h.host("resettotals", "")
+	h.step(0)
+	if played() != 0 || total(2) != 0 {
+		t.Fatal("reset should clear the standings")
+	}
+}
+
+func TestPlayAgainWorksFromTheFinalScreen(t *testing.T) {
+	h := newHarness(t, 2)
+	h.host("start", `,"game":"zap","rounds":1`)
+	h.step(0)
+	if !h.until(3*time.Minute, func() bool { return h.roomPhase() == "final" }) {
+		t.Fatal("game never finished")
+	}
+	h.host("start", `,"game":"zap","rounds":1`)
+	h.step(0)
+	if got := h.roomPhase(); got != "game" {
+		t.Fatalf("Play again left the room in %q, want game", got)
+	}
+}

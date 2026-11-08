@@ -140,7 +140,7 @@ main { flex: 1; padding: 8px clamp(16px, 4vw, 64px) 32px; }
 .votes { display: grid; gap: 10px; } .vote { --c: var(--accent); border-left: 8px solid var(--c); } .vote span { margin-left: auto; color: var(--mute); } .vote.picked { border-color: var(--accent); }
 
 /* final */
-.final { text-align: center; }
+.final { text-align: center; } .final .row { justify-content: center; margin-top: 24px; }
 .podium { display: flex; justify-content: center; align-items: flex-end; gap: 16px; margin: 24px 0; }
 .step { display: flex; flex-direction: column; align-items: center; gap: 6px; font-weight: 800; animation: rise .8s both; } .step.s1 { animation-delay: .5s; } .step.s2 { animation-delay: .25s; }
 .step .num { font-size: 1.6rem; color: var(--warn); }
@@ -182,3 +182,8 @@ body.phone .shell { max-width: 520px; margin: 0 auto; padding-bottom: env(safe-a
   .tv .options { grid-template-columns: 1fr; }
 }
 @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+
+/* party standings */
+.standings { margin: 18px 0 -6px; }
+.total { color: var(--mute); font-weight: 700; font-size: .9rem; white-space: nowrap; }
+.step .total { font-size: 1rem; }
